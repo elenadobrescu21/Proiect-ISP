@@ -24,7 +24,7 @@ public class Administrator {
 		
 	}
 	
-	public boolean verificareCont() {
+	public boolean verificareCont(Cont c) {
 		
 	}
 
