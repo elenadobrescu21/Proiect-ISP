@@ -23,11 +23,31 @@ public class Main {
 		listaElevi.add(e2);
 		listaElevi.add(e3);
 		
+		listaProfesori.add(c1);
+		
 		Administrator admin = new Administrator();
 		admin.creareContElev(e1);
 		admin.creareContElev(e2);
 		admin.creareContElev(e3);
-		boolean logat = false;
+		
+		admin.creareContCadruDidactic(c1);
+		int alegereTipCont;
+		do{
+			System.out.println("Apasa 1 pentru a te loga cu un cont de cadru didactic");
+			System.out.println("Apasa 2 pentru a te loga cu un cont de elev");
+			Scanner s = new Scanner(System.in);
+			alegereTipCont = s.nextInt();		
+		}while(alegereTipCont!=1 && alegereTipCont!=2);
+		
+		if(alegereTipCont == 1) {
+			System.out.println("Cont de cadru didactic");
+		}
+		else {
+			System.out.println("Cont de elev");
+		}
+		
+		
+		/*boolean logat = false;
 		while(logat == false) {
 		System.out.println("Logare ca Elev");
 		System.out.println("Username:");
@@ -47,8 +67,8 @@ public class Main {
 				System.out.println("Username sau parola incorecta");
 		
 		}
-		}
+		}*/
 
-	}
+	} 
 
 }

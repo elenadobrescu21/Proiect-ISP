@@ -47,7 +47,35 @@ public class Administrator {
 		e.setCont(contElev);
 	}
 	
-	public void creareContCadruDidactic(){
+	public void creareContCadruDidactic(CadruDidactic cd){
+		
+		String numeProfesor = cd.getNume();
+		String prenumeProfesor = cd.getPrenume();
+		String[] prenume = prenumeProfesor.split(" ");
+		String username = numeProfesor + "." + prenume[0];
+		String parola = "parola";
+		Cont contProfesor = new Cont(username, parola);
+		for(Cont c : this.conturiElev) {
+			if (c.getUsername().equals(contProfesor.getUsername())) {
+				int numarPrenume = prenume.length;
+				if(numarPrenume > 1) {
+					username = username + "_" + prenume[1];
+					contProfesor.setUsername(username);
+				}
+				else {
+					String CNP = cd.getCNP();
+					String numbers = CNP.substring(Math.max(0, CNP.length() - 4));
+					username = username + numbers;
+					contProfesor.setUsername(username);
+				}
+				
+			}	
+		}
+		
+		this.conturiCadruDidactic.add(contProfesor);
+		cd.setCont(contProfesor);
+		
+		
 		
 	}
 	
