@@ -35,5 +35,26 @@ public class Elev extends Persoana {
 		this.activitati = activitati;
 	}
 	
+	public double getNumerarCont() {
+		return numerarCont;
+	}
+
+	public void setNumerarCont(double numerarCont) {
+		this.numerarCont = numerarCont;
+	}
+
+	public void afiseazaInformatii() {
+		System.out.println("Nume: " + this.getNume());
+		System.out.println("Prenume: " + this.getPrenume());
+		System.out.println("Clasa: " + this.getClasa().getNume());
+		System.out.println("Numerar cont: " + this.getNumerarCont());
+		System.out.println("Activititati: ");
+		for(Activitate a: activitati) {
+			System.out.println(a.getNume());
+		}
+		
+	}
+	
+	
 	
 }

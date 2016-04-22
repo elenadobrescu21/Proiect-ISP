@@ -8,6 +8,24 @@ public class Clasa {
 		this.nume = nume;
 		this.responsabil = responsabil;
 	}
+
+	public String getNume() {
+		return nume;
+	}
+
+	public void setNume(String nume) {
+		this.nume = nume;
+	}
+
+	public CadruDidactic getResponsabil() {
+		return responsabil;
+	}
+
+	public void setResponsabil(CadruDidactic responsabil) {
+		this.responsabil = responsabil;
+	}
+	
+	
 	
 	
 	

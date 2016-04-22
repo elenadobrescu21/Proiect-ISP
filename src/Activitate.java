@@ -67,6 +67,60 @@ public class Activitate {
 	public void setTaxa(double taxa) {
 		this.taxa = taxa;
 	}
+	
+	public String getNume() {
+		return nume;
+	}
+
+
+	public void setNume(String nume) {
+		this.nume = nume;
+	}
+
+
+	public Data getTermenLimitaInscriere() {
+		return termenLimitaInscriere;
+	}
+
+
+	public void setTermenLimitaInscriere(Data termenLimitaInscriere) {
+		this.termenLimitaInscriere = termenLimitaInscriere;
+	}
+
+
+	public int getNrMaximParticipanti() {
+		return nrMaximParticipanti;
+	}
+
+
+	public void setNrMaximParticipanti(int nrMaximParticipanti) {
+		this.nrMaximParticipanti = nrMaximParticipanti;
+	}
+
+
+	public int getOraIncepere() {
+		return oraIncepere;
+	}
+
+
+	public void setOraIncepere(int oraIncepere) {
+		this.oraIncepere = oraIncepere;
+	}
+
+
+	public String getStare() {
+		return stare;
+	}
+
+
+	public void setStare(String stare) {
+		this.stare = stare;
+	}
+
+
+	public void setResponsabil(CadruDidactic responsabil) {
+		this.responsabil = responsabil;
+	}
 
 
 	public void adaugaElev(Elev e) {
