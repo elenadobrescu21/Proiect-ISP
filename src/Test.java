@@ -1,17 +1,19 @@
 import static org.junit.Assert.*;
 
+import org.junit.internal.runners.model.EachTestNotifier;
+
 import junit.framework.TestCase;
 
 public class Test extends TestCase{
 	
 	
 	@org.junit.Test
-	public void testCreareContElevDuplicatCuCNP() {
+	public void testCreareContDuplicatCuCNP() {
 	    Elev e = new Elev("Dobrescu", "Elena", "2940621460044", 600);
 	    Administrator a = new Administrator();
 	    Cont c = new Cont("Dobrescu.Elena", "pppppp");
 	    a.adaugaContElev(c);
-	    a.creareContElev(e);
+	    a.creareCont(e);
 	    Cont contElev = e.getCont();
 	    String username = e.getCont().getUsername();
 	     boolean OK;
@@ -23,12 +25,12 @@ public class Test extends TestCase{
 		assertTrue("Contul a fost generat cum trebuie" ,OK);
 	}
 	
-	public void testCreareContElevDuplicatFaraCNP() {
+	public void testCreareContDuplicatFaraCNP() {
 	    Elev e = new Elev("Dobrescu", "Elena Alexandra", "2940621460044", 600);
 	    Administrator a = new Administrator();
 	    Cont c = new Cont("Dobrescu.Elena", "pppppp");
 	    a.adaugaContElev(c);
-	    a.creareContElev(e);
+	    a.creareCont(e);
 	    Cont contElev = e.getCont();
 	    String username = e.getCont().getUsername();
 	     boolean OK;
@@ -43,10 +45,10 @@ public class Test extends TestCase{
 	
 	
 	@org.junit.Test
-	public void testCreareContElevNeduplicat() {
+	public void testCreareContNeduplicat() {
 	    Elev e = new Elev("Dobrescu", "Elena", "2940621460044", 600);
 	    Administrator a = new Administrator();
-	    a.creareContElev(e);
+	    a.creareCont(e);
 	    Cont contElev = e.getCont();
 	    String username = e.getCont().getUsername();
 	     boolean OK;
@@ -57,6 +59,20 @@ public class Test extends TestCase{
 	    	 OK = false;
 		assertTrue("Contul a fost generat cum trebuie" ,OK);
 	}
+	
+	
+	@org.junit.Test
+	public void testVerificareCont() {
+		Elev e = new Elev("Dobrescu", "Elena", "2940621460044", 600);
+	    Administrator a = new Administrator();
+	    Cont c = new Cont("Dobrescu.Elena", "pppppp");
+	    a.adaugaContElev(c);
+	    a.creareCont(e);
+	    boolean result = a.verificareCont(e);
+	    assertTrue("Contul se gaseste in lista", result);
+	}
+	
+	
 
 	
 

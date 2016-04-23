@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class Administrator {
@@ -19,6 +20,41 @@ public class Administrator {
 		
 	}
 	
+	public void creareCont(Persoana p) {
+		List<Cont> lista = new ArrayList<Cont>();
+		if(p instanceof Elev) {
+			lista = this.conturiElev;			
+		}
+		else
+			lista = this.conturiCadruDidactic;
+		String nume = p.getNume();
+		String prenumePersoana = p.getPrenume();
+		String[] prenume = prenumePersoana.split(" ");
+		String username = nume + "." + prenume[0];
+		String parola = "parola";
+		Cont cont = new Cont(username, parola);
+		for(Cont c : lista) {
+			if (c.getUsername().equals(cont.getUsername())) {
+				int numarPrenume = prenume.length;
+				if(numarPrenume > 1) {
+					username = username + "_" + prenume[1];
+					cont.setUsername(username);
+				}
+				else {
+					String CNP = p.getCNP();
+					String numbers = CNP.substring(Math.max(0, CNP.length() - 4));
+					username = username + numbers;
+					cont.setUsername(username);
+				}
+				
+			}	
+		}
+		
+		lista.add(cont);
+		p.setCont(cont);
+		
+	}
+	/*
 	public void creareContElev(Elev e) {
 		String numeElev = e.getNume();
 		String prenumeElev = e.getPrenume();
@@ -78,13 +114,30 @@ public class Administrator {
 		
 		
 	}
-	
+	 */
 	public void modificareDateElev() {
 		
 	}
 	
-	/*public boolean verificareCont(Cont c) {
-		
-	} */
+	public boolean verificareCont(Persoana p) {
+		List<Cont> listaDeCautat = new ArrayList<Cont>();
+		if(p instanceof Elev) {
+			listaDeCautat = this.conturiElev;
+		}
+		else
+			listaDeCautat = this.conturiCadruDidactic;
+		boolean contExistent = false;
+		for(Cont cont : listaDeCautat) {
+			if(p.getCont().equals(cont)) {
+				contExistent = true;
+			break;
+			}			
+	     } 
+		return contExistent;
+	}
+	
+	
+	
+	
 
 }

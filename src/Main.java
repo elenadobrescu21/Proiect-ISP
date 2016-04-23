@@ -26,11 +26,11 @@ public class Main {
 		listaProfesori.add(c1);
 		
 		Administrator admin = new Administrator();
-		admin.creareContElev(e1);
-		admin.creareContElev(e2);
-		admin.creareContElev(e3);
+		admin.creareCont(e1);
+		admin.creareCont(e2);
+		admin.creareCont(e3);
 		
-		admin.creareContCadruDidactic(c1);
+		admin.creareCont(c1);
 		int alegereTipCont;
 		do{
 			System.out.println("Apasa 1 pentru a te loga cu un cont de cadru didactic");
