@@ -4,9 +4,9 @@ import java.util.ArrayList;
 public class Excursie extends Activitate {
 	ArrayList<ObiectivTuristic> obiectiveTuristice;
 	
-	public Excursie(Data dataDesfasurare, double taxa, Data termenLimitaInscriere, int nrMaximParticipanti, int oraIncepere,
+	public Excursie(String nume,Data dataDesfasurare, double taxa, Data termenLimitaInscriere, int nrMaximParticipanti, int oraIncepere,
 			ArrayList<ObiectivTuristic> obiectiveTuristice) {
-		super(dataDesfasurare,taxa, termenLimitaInscriere, nrMaximParticipanti, oraIncepere);
+		super(nume, dataDesfasurare,taxa, termenLimitaInscriere, nrMaximParticipanti, oraIncepere);
 		this.obiectiveTuristice = obiectiveTuristice;
 	}
 

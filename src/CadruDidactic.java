@@ -6,7 +6,6 @@ public class CadruDidactic extends Persoana {
 	private int anAngajare;
 	private ArrayList<Activitate> activitatiCoordonate;
 	
-	
 	public CadruDidactic(String nume, String prenume, String CNP, double salariu,
 			int anAngajare) {
 		super(nume, prenume, CNP);

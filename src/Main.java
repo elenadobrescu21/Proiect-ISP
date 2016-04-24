@@ -40,7 +40,7 @@ public class Main {
 		}while(alegereTipCont!=1 && alegereTipCont!=2);
 		
 		if(alegereTipCont == 1) {
-			System.out.println("Cont de cadru didactic");
+			
 		}
 		else {
 			System.out.println("Cont de elev");

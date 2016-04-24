@@ -5,10 +5,10 @@ public class Sedinta extends Activitate {
 	private Sala sala;
 	
 	
-	public Sedinta(Data dataDesfasurare, double taxa,
+	public Sedinta(String nume,Data dataDesfasurare, double taxa,
 			Data termenLimitaInscriere, int nrMaximParticipanti,
 			int oraIncepere, Clasa clasa, Sala sala) {
-		super(dataDesfasurare, taxa, termenLimitaInscriere,
+		super(nume,dataDesfasurare, taxa, termenLimitaInscriere,
 				nrMaximParticipanti, oraIncepere);
 		this.clasa = clasa;
 		this.sala = sala;

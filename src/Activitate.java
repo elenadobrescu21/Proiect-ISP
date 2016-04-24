@@ -14,7 +14,8 @@ public class Activitate {
 	private int oraIncepere;
 	private String stare;
 	
-	public Activitate(Data dataDesfasurare, double taxa, Data termenLimitaInscriere, int nrMaximParticipanti, int oraIncepere) {
+	public Activitate(String nume,Data dataDesfasurare, double taxa, Data termenLimitaInscriere, int nrMaximParticipanti, int oraIncepere) {
+		this.nume = nume;
 		this.dataDesfasurare = dataDesfasurare;
 		this.taxa = taxa;
 		this.termenLimitaInscriere = termenLimitaInscriere;

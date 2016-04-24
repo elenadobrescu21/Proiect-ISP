@@ -1,17 +1,68 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 
 public class Administrator {
 	private ArrayList<Cont> conturiElev;
 	private ArrayList<Cont> conturiCadruDidactic;
+	private ArrayList<Activitate> activitati;
 	
 	public Administrator() {
 		conturiElev = new ArrayList<Cont>();
 		conturiCadruDidactic = new ArrayList<Cont>();
 	}
 	
+	//metoda Vali
 	public void adaugaActivitate(){
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Introduceti nume activitate");
+		String nume = scan.nextLine();
+		System.out.println("Introduceti data activitate");
+		System.out.println("Ziua: ");
+		int zi = scan.nextInt();
+		System.out.println("Luna: ");
+		int luna = scan.nextInt();
+		System.out.println("An: ");
+		int an = scan.nextInt();
+		Data dataDesfasurare = new Data(zi, luna, an);
+		System.out.println("Introduceti numar maxim de participanti:" );
+		int nrMaxParticipanti = scan.nextInt();
+		System.out.println("Introduceti taxa: ");
+		double taxa = scan.nextDouble();
+		System.out.println("Introduceti termen limita inscriere: ");
+		System.out.println("Ziua: ");
+		int ziLimita = scan.nextInt();
+		System.out.println("Luna: ");
+		int lunaLimita = scan.nextInt();
+		System.out.println("An: ");
+		int anLimita = scan.nextInt();
+		Data dataLimita = new Data(ziLimita, lunaLimita, anLimita);
+		System.out.println("Ora: ");
+		int ora = scan.nextInt();
+		
+		System.out.println("Alegeti tipul activitatii: ");
+		System.out.println("C - concurs");
+		System.out.println("S - sedinta");
+		System.out.println("W - workshop");
+		System.out.println("E - excursie");
+		char c;
+		do{
+			c = scan.next().charAt(0);
+		}while(c!='c' && c!='s' && c!='w' && c!='e');
+		
+		if(c == 'c'){
+			System.out.println("Activitate de tip concurs");
+			System.out.println("Introduceti disciplina concurs: ");
+			String disciplina = scan.nextLine();
+			System.out.println("Introduceti sponsor:");
+            System.out.println("Nume firma: ");
+            String firmaSponsor = scan.nextLine();
+            Sponsor sp = new Sponsor(firmaSponsor);
+            Activitate a = new Concurs(nume, dataDesfasurare,taxa, dataLimita, nrMaxParticipanti, ora, disciplina, sp );
+		}
+		
+		
 		
 	}
 	
@@ -119,21 +170,27 @@ public class Administrator {
 		
 	}
 	
-	public boolean verificareCont(Persoana p) {
-		List<Cont> listaDeCautat = new ArrayList<Cont>();
-		if(p instanceof Elev) {
-			listaDeCautat = this.conturiElev;
-		}
-		else
-			listaDeCautat = this.conturiCadruDidactic;
+	public boolean verificareContElev(Cont c) {
 		boolean contExistent = false;
-		for(Cont cont : listaDeCautat) {
-			if(p.getCont().equals(cont)) {
+		for(Cont cont : this.conturiElev) {
+			if(c.equals(cont)) {
 				contExistent = true;
 			break;
 			}			
 	     } 
 		return contExistent;
+	}
+	
+	public boolean verificareContProfesor(Cont c) {
+		boolean contExistent = false;
+		for(Cont cont : this.conturiCadruDidactic) {
+			if(c.equals(cont)) {
+				contExistent = true;
+			break;
+			}			
+	     } 
+		return contExistent;
+		
 	}
 	
 	

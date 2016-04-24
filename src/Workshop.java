@@ -4,10 +4,10 @@ public class Workshop extends Activitate {
 	private String tematica;
 	private Sala sala;
 	
-	public Workshop(Data dataDesfasurare, double taxa,
+	public Workshop(String nume, Data dataDesfasurare, double taxa,
 			Data termenLimitaInscriere, int nrMaximParticipanti, int oraIncepere,
 			String tematica, Sala sala) {
-		super(dataDesfasurare, taxa, termenLimitaInscriere, nrMaximParticipanti,
+		super(nume, dataDesfasurare, taxa, termenLimitaInscriere, nrMaximParticipanti,
 				oraIncepere);
 		this.tematica = tematica;
 		this.sala = sala;
