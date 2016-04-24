@@ -3,6 +3,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Administrator {
+	// Grasu zicea ca ar fi mers si conturi de admin
 	private ArrayList<Cont> conturiElev;
 	private ArrayList<Cont> conturiCadruDidactic;
 	private ArrayList<Activitate> activitati;
@@ -50,6 +51,7 @@ public class Administrator {
 			c = scan.next().charAt(0);
 		} while (c != 'c' && c != 's' && c != 'w' && c != 'e');
 
+		// Daca e concurs
 		if (c == 'c') {
 			System.out.println("Activitate de tip concurs");
 			System.out.println("Introduceti disciplina concurs: ");
@@ -60,26 +62,42 @@ public class Administrator {
 			Sponsor sp = new Sponsor(firmaSponsor);
 			Activitate a = new Concurs(nume, dataDesfasurare, taxa, dataLimita, nrMaxParticipanti, ora, disciplina, sp);
 		}
+		// De implementat:
+		// sedinta/workshop/excursie
+
+		// Cicu - Fix Bug Leak
+		// Cred ca poate fi inchis si mai sus
+		// Scannerul trebuie inchis dupa ce nu mai se citeste din consola/fisier
+		scan.close();
 
 	}
 
 	public void adaugaContElev(Cont c) {
-		this.conturiElev.add(c);
+		conturiElev.add(c);
 
 	}
 
 	public void creareCont(Persoana p) {
+		// Lista curenta de conturi
 		List<Cont> lista = new ArrayList<Cont>();
+
+		// Daca adaugi elevi, foloseste lista de elevi
 		if (p instanceof Elev) {
 			lista = this.conturiElev;
-		} else
+		}
+		// Daca adaugi cadre didactice, foloseste lista de cadre
+		else {
 			lista = this.conturiCadruDidactic;
+		}
+
 		String nume = p.getNume();
 		String prenumePersoana = p.getPrenume();
 		String[] prenume = prenumePersoana.split(" ");
 		String username = nume + "." + prenume[0];
 		String parola = "parola";
 		Cont cont = new Cont(username, parola);
+
+		// Verificare daca exista cont de forma nume.prenume
 		for (Cont c : lista) {
 			if (c.getUsername().equals(cont.getUsername())) {
 				int numarPrenume = prenume.length;
@@ -138,9 +156,9 @@ public class Administrator {
 	 * 
 	 * }
 	 */
-	public void modificareDateElev() {
 
-	}
+	// Cicu - doar o functie de verificare
+	// In diagrama e doar verificareCont
 
 	public boolean verificareContElev(Cont c) {
 		boolean contExistent = false;
@@ -164,5 +182,20 @@ public class Administrator {
 		return contExistent;
 
 	}
+
+	/* De implementat , Modificarile poate le putem face tot intr-o functie
+	
+	public void modificareDateElev() {
+
+	}
+
+	public void modificareDateCadruD() {
+
+	}
+
+	public void cautaActivitate() {
+
+	}
+	*/
 
 }

@@ -1,5 +1,6 @@
 
 public class Persoana {
+
 	private String nume;
 	private String prenume;
 	private String CNP;
@@ -31,8 +32,8 @@ public class Persoana {
 		return CNP;
 	}
 
-	public void setCNP(String cNP) {
-		CNP = cNP;
+	public void setCNP(String CNP) {
+		this.CNP = CNP;
 	}
 
 	public Cont getCont() {

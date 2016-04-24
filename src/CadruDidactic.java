@@ -1,7 +1,9 @@
 import java.util.ArrayList;
 
 public class CadruDidactic extends Persoana {
+	// Cicu - merge si float pt salariu
 	private double salariu;
+	// Cicu - Nu cred ca folosim campul anAngajare in vreo functie
 	private int anAngajare;
 	private ArrayList<Activitate> activitatiCoordonate;
 
@@ -26,5 +28,14 @@ public class CadruDidactic extends Persoana {
 	public void setAnAngajare(int anAngajare) {
 		this.anAngajare = anAngajare;
 	}
-
+	
+	/*De implementat 
+	
+	public void veziActivitatiCoordonate(){
+	}
+	public void adaugaActivitate(Activitate a){
+	}
+	public void veziDetaliiElev(CNP s){
+	}
+	 */
 }

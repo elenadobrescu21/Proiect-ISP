@@ -1,30 +1,29 @@
-
 public class Sala {
 
-	private int numar;
-	private int numarLocuri;
+	private int nrSala;
+	private int nrLocuri;
 	private int etaj;
 
-	public Sala(int numar, int numarLocuri, int etaj) {
-		this.numar = numar;
-		this.numarLocuri = numarLocuri;
+	public Sala(int nrSala, int nrLocuri, int etaj) {
+		this.nrSala = nrSala;
+		this.nrLocuri = nrLocuri;
 		this.etaj = etaj;
 	}
 
-	public int getNumar() {
-		return numar;
+	public int getNrSala() {
+		return nrSala;
 	}
 
-	public void setNumar(int numar) {
-		this.numar = numar;
+	public void setNrSala(int nrSala) {
+		this.nrSala = nrSala;
 	}
 
-	public int getNumarLocuri() {
-		return numarLocuri;
+	public int getNrLocuri() {
+		return nrLocuri;
 	}
 
-	public void setNumarLocuri(int numarLocuri) {
-		this.numarLocuri = numarLocuri;
+	public void setNumarLocuri(int nrLocuri) {
+		this.nrLocuri = nrLocuri;
 	}
 
 	public int getEtaj() {
@@ -34,5 +33,8 @@ public class Sala {
 	public void setEtaj(int etaj) {
 		this.etaj = etaj;
 	}
+
+	// De implementat
+	// public void modificaSala(){}
 
 }

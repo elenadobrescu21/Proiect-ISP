@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 public class Sponsor {
+
 	private String firma;
 	private ArrayList<Activitate> activitatiSponsorizate;
 
@@ -17,6 +18,8 @@ public class Sponsor {
 		this.firma = firma;
 	}
 
+	// Asta e functia din diagrama -> veziActivitatiSponsorizate
+	// Trebuie schimbat tipul de data in diagrama
 	public ArrayList<Activitate> getActivitatiSponsorizate() {
 		return activitatiSponsorizate;
 	}
@@ -25,7 +28,8 @@ public class Sponsor {
 		this.activitatiSponsorizate = activitatiSponsorizate;
 	}
 
-	public void adaugaActivitate(Activitate a) {
+	// Adauga la lista de activitati sponsorizate
+	public void adaugaActivitateSponsorizata(Activitate a) {
 		this.activitatiSponsorizate.add(a);
 	}
 

@@ -2,6 +2,8 @@ public class Cont {
 
 	private String username;
 	private String parola;
+	//Ar fi ok sa adaugam o semnatura/boolean(prof/elev) sau int(prof/elev/admin)
+	//Sa stim daca e cont de prof/elev 
 
 	public Cont(String username, String parola) {
 		this.username = username;

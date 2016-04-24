@@ -12,12 +12,6 @@ public class Elev extends Persoana {
 		activitati = new ArrayList<Activitate>();
 	}
 
-	// de completat- Alex
-	public void inscrieLaActivitate(Activitate a) {
-		this.activitati.add(a);
-		a.adaugaElev(this);
-	}
-
 	public Clasa getClasa() {
 		return clasa;
 	}
@@ -25,7 +19,8 @@ public class Elev extends Persoana {
 	public void setClasa(Clasa clasa) {
 		this.clasa = clasa;
 	}
-
+	
+	//Functia veziActivitatiCurente din diagrame
 	public ArrayList<Activitate> getActivitati() {
 		return activitati;
 	}
@@ -53,5 +48,17 @@ public class Elev extends Persoana {
 		}
 
 	}
+
+	// de completat- Alex
+	// need rename
+	public void inscrieLaActivitate(Activitate a) {
+		this.activitati.add(a);
+		a.adaugaElev(this);
+	}
+	
+	//De implementat
+	//veziActivitatiDisponibile
+	//veziActivitatiCurente
+	
 
 }

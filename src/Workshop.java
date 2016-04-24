@@ -1,4 +1,3 @@
-
 public class Workshop extends Activitate {
 
 	private String tematica;
@@ -27,5 +26,7 @@ public class Workshop extends Activitate {
 	public void setSala(Sala sala) {
 		this.sala = sala;
 	}
+	
+	//De implementat modificaWorkshop(){}
 
 }

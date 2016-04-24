@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 public class Excursie extends Activitate {
+	
 	ArrayList<ObiectivTuristic> obiectiveTuristice;
 
 	public Excursie(String nume, Data dataDesfasurare, double taxa, Data termenLimitaInscriere, int nrMaximParticipanti,

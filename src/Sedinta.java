@@ -1,4 +1,3 @@
-
 public class Sedinta extends Activitate {
 
 	private Clasa clasa;
@@ -26,5 +25,7 @@ public class Sedinta extends Activitate {
 	public void setSala(Sala sala) {
 		this.sala = sala;
 	}
+	
+	//De implementat public void modificaSedinta(){}
 
 }
