@@ -4,7 +4,7 @@ public class Sala {
 	private int numar;
 	private int numarLocuri;
 	private int etaj;
-	
+
 	public Sala(int numar, int numarLocuri, int etaj) {
 		this.numar = numar;
 		this.numarLocuri = numarLocuri;
@@ -34,5 +34,5 @@ public class Sala {
 	public void setEtaj(int etaj) {
 		this.etaj = etaj;
 	}
-	
+
 }

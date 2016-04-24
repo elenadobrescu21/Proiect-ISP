@@ -2,19 +2,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-
 public class Administrator {
 	private ArrayList<Cont> conturiElev;
 	private ArrayList<Cont> conturiCadruDidactic;
 	private ArrayList<Activitate> activitati;
-	
+
 	public Administrator() {
 		conturiElev = new ArrayList<Cont>();
 		conturiCadruDidactic = new ArrayList<Cont>();
 	}
-	
-	//metoda Vali
-	public void adaugaActivitate(){
+
+	// metoda Vali
+	public void adaugaActivitate() {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Introduceti nume activitate");
 		String nume = scan.nextLine();
@@ -26,7 +25,7 @@ public class Administrator {
 		System.out.println("An: ");
 		int an = scan.nextInt();
 		Data dataDesfasurare = new Data(zi, luna, an);
-		System.out.println("Introduceti numar maxim de participanti:" );
+		System.out.println("Introduceti numar maxim de participanti:");
 		int nrMaxParticipanti = scan.nextInt();
 		System.out.println("Introduceti taxa: ");
 		double taxa = scan.nextDouble();
@@ -40,43 +39,40 @@ public class Administrator {
 		Data dataLimita = new Data(ziLimita, lunaLimita, anLimita);
 		System.out.println("Ora: ");
 		int ora = scan.nextInt();
-		
+
 		System.out.println("Alegeti tipul activitatii: ");
 		System.out.println("C - concurs");
 		System.out.println("S - sedinta");
 		System.out.println("W - workshop");
 		System.out.println("E - excursie");
 		char c;
-		do{
+		do {
 			c = scan.next().charAt(0);
-		}while(c!='c' && c!='s' && c!='w' && c!='e');
-		
-		if(c == 'c'){
+		} while (c != 'c' && c != 's' && c != 'w' && c != 'e');
+
+		if (c == 'c') {
 			System.out.println("Activitate de tip concurs");
 			System.out.println("Introduceti disciplina concurs: ");
 			String disciplina = scan.nextLine();
 			System.out.println("Introduceti sponsor:");
-            System.out.println("Nume firma: ");
-            String firmaSponsor = scan.nextLine();
-            Sponsor sp = new Sponsor(firmaSponsor);
-            Activitate a = new Concurs(nume, dataDesfasurare,taxa, dataLimita, nrMaxParticipanti, ora, disciplina, sp );
+			System.out.println("Nume firma: ");
+			String firmaSponsor = scan.nextLine();
+			Sponsor sp = new Sponsor(firmaSponsor);
+			Activitate a = new Concurs(nume, dataDesfasurare, taxa, dataLimita, nrMaxParticipanti, ora, disciplina, sp);
 		}
-		
-		
-		
+
 	}
-	
-	public void adaugaContElev(Cont c){
+
+	public void adaugaContElev(Cont c) {
 		this.conturiElev.add(c);
-		
+
 	}
-	
+
 	public void creareCont(Persoana p) {
 		List<Cont> lista = new ArrayList<Cont>();
-		if(p instanceof Elev) {
-			lista = this.conturiElev;			
-		}
-		else
+		if (p instanceof Elev) {
+			lista = this.conturiElev;
+		} else
 			lista = this.conturiCadruDidactic;
 		String nume = p.getNume();
 		String prenumePersoana = p.getPrenume();
@@ -84,117 +80,89 @@ public class Administrator {
 		String username = nume + "." + prenume[0];
 		String parola = "parola";
 		Cont cont = new Cont(username, parola);
-		for(Cont c : lista) {
+		for (Cont c : lista) {
 			if (c.getUsername().equals(cont.getUsername())) {
 				int numarPrenume = prenume.length;
-				if(numarPrenume > 1) {
+				if (numarPrenume > 1) {
 					username = username + "_" + prenume[1];
 					cont.setUsername(username);
-				}
-				else {
+				} else {
 					String CNP = p.getCNP();
 					String numbers = CNP.substring(Math.max(0, CNP.length() - 4));
 					username = username + numbers;
 					cont.setUsername(username);
 				}
-				
-			}	
+
+			}
 		}
-		
+
 		lista.add(cont);
 		p.setCont(cont);
-		
+
 	}
+
 	/*
-	public void creareContElev(Elev e) {
-		String numeElev = e.getNume();
-		String prenumeElev = e.getPrenume();
-		String[] prenume = prenumeElev.split(" ");
-		String username = numeElev + "." + prenume[0];
-		String parola = "parola";
-		Cont contElev = new Cont(username, parola);
-		for(Cont c : this.conturiElev) {
-			if (c.getUsername().equals(contElev.getUsername())) {
-				int numarPrenume = prenume.length;
-				if(numarPrenume > 1) {
-					username = username + "_" + prenume[1];
-					contElev.setUsername(username);
-				}
-				else {
-					String CNP = e.getCNP();
-					String numbers = CNP.substring(Math.max(0, CNP.length() - 4));
-					username = username + numbers;
-					contElev.setUsername(username);
-				}
-				
-			}	
-		}
-		
-		this.conturiElev.add(contElev);
-		e.setCont(contElev);
-	}
-	
-	public void creareContCadruDidactic(CadruDidactic cd){
-		
-		String numeProfesor = cd.getNume();
-		String prenumeProfesor = cd.getPrenume();
-		String[] prenume = prenumeProfesor.split(" ");
-		String username = numeProfesor + "." + prenume[0];
-		String parola = "parola";
-		Cont contProfesor = new Cont(username, parola);
-		for(Cont c : this.conturiElev) {
-			if (c.getUsername().equals(contProfesor.getUsername())) {
-				int numarPrenume = prenume.length;
-				if(numarPrenume > 1) {
-					username = username + "_" + prenume[1];
-					contProfesor.setUsername(username);
-				}
-				else {
-					String CNP = cd.getCNP();
-					String numbers = CNP.substring(Math.max(0, CNP.length() - 4));
-					username = username + numbers;
-					contProfesor.setUsername(username);
-				}
-				
-			}	
-		}
-		
-		this.conturiCadruDidactic.add(contProfesor);
-		cd.setCont(contProfesor);
-		
-		
-		
-	}
+	 * public void creareContElev(Elev e) { String numeElev = e.getNume();
+	 * String prenumeElev = e.getPrenume(); String[] prenume =
+	 * prenumeElev.split(" "); String username = numeElev + "." + prenume[0];
+	 * String parola = "parola"; Cont contElev = new Cont(username, parola);
+	 * for(Cont c : this.conturiElev) { if
+	 * (c.getUsername().equals(contElev.getUsername())) { int numarPrenume =
+	 * prenume.length; if(numarPrenume > 1) { username = username + "_" +
+	 * prenume[1]; contElev.setUsername(username); } else { String CNP =
+	 * e.getCNP(); String numbers = CNP.substring(Math.max(0, CNP.length() -
+	 * 4)); username = username + numbers; contElev.setUsername(username); }
+	 * 
+	 * } }
+	 * 
+	 * this.conturiElev.add(contElev); e.setCont(contElev); }
+	 * 
+	 * public void creareContCadruDidactic(CadruDidactic cd){
+	 * 
+	 * String numeProfesor = cd.getNume(); String prenumeProfesor =
+	 * cd.getPrenume(); String[] prenume = prenumeProfesor.split(" "); String
+	 * username = numeProfesor + "." + prenume[0]; String parola = "parola";
+	 * Cont contProfesor = new Cont(username, parola); for(Cont c :
+	 * this.conturiElev) { if
+	 * (c.getUsername().equals(contProfesor.getUsername())) { int numarPrenume =
+	 * prenume.length; if(numarPrenume > 1) { username = username + "_" +
+	 * prenume[1]; contProfesor.setUsername(username); } else { String CNP =
+	 * cd.getCNP(); String numbers = CNP.substring(Math.max(0, CNP.length() -
+	 * 4)); username = username + numbers; contProfesor.setUsername(username); }
+	 * 
+	 * } }
+	 * 
+	 * this.conturiCadruDidactic.add(contProfesor); cd.setCont(contProfesor);
+	 * 
+	 * 
+	 * 
+	 * }
 	 */
 	public void modificareDateElev() {
-		
+
 	}
-	
+
 	public boolean verificareContElev(Cont c) {
 		boolean contExistent = false;
-		for(Cont cont : this.conturiElev) {
-			if(c.equals(cont)) {
+		for (Cont cont : this.conturiElev) {
+			if (c.equals(cont)) {
 				contExistent = true;
-			break;
-			}			
-	     } 
+				break;
+			}
+		}
 		return contExistent;
 	}
-	
+
 	public boolean verificareContProfesor(Cont c) {
 		boolean contExistent = false;
-		for(Cont cont : this.conturiCadruDidactic) {
-			if(c.equals(cont)) {
+		for (Cont cont : this.conturiCadruDidactic) {
+			if (c.equals(cont)) {
 				contExistent = true;
-			break;
-			}			
-	     } 
+				break;
+			}
+		}
 		return contExistent;
-		
+
 	}
-	
-	
-	
-	
 
 }

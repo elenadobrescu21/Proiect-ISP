@@ -4,7 +4,7 @@ public class Persoana {
 	private String prenume;
 	private String CNP;
 	private Cont cont;
-	
+
 	public Persoana(String nume, String prenume, String CNP) {
 		this.nume = nume;
 		this.prenume = prenume;
@@ -42,6 +42,5 @@ public class Persoana {
 	public void setCont(Cont cont) {
 		this.cont = cont;
 	}
-	
 
 }

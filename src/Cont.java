@@ -1,9 +1,8 @@
-
 public class Cont {
-	
+
 	private String username;
 	private String parola;
-	
+
 	public Cont(String username, String parola) {
 		this.username = username;
 		this.parola = parola;
@@ -55,7 +54,5 @@ public class Cont {
 			return false;
 		return true;
 	}
-	
-	
-	
+
 }

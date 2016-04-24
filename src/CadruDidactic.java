@@ -1,13 +1,11 @@
 import java.util.ArrayList;
 
-
 public class CadruDidactic extends Persoana {
 	private double salariu;
 	private int anAngajare;
 	private ArrayList<Activitate> activitatiCoordonate;
-	
-	public CadruDidactic(String nume, String prenume, String CNP, double salariu,
-			int anAngajare) {
+
+	public CadruDidactic(String nume, String prenume, String CNP, double salariu, int anAngajare) {
 		super(nume, prenume, CNP);
 		this.salariu = salariu;
 		this.anAngajare = anAngajare;
@@ -28,6 +26,5 @@ public class CadruDidactic extends Persoana {
 	public void setAnAngajare(int anAngajare) {
 		this.anAngajare = anAngajare;
 	}
-
 
 }

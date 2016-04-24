@@ -1,8 +1,7 @@
 import java.util.ArrayList;
 
-
 public class Elev extends Persoana {
-	
+
 	private Clasa clasa;
 	private ArrayList<Activitate> activitati;
 	private double numerarCont;
@@ -12,11 +11,11 @@ public class Elev extends Persoana {
 		this.numerarCont = numerarCont;
 		activitati = new ArrayList<Activitate>();
 	}
-	
-	//de completat- Alex
+
+	// de completat- Alex
 	public void inscrieLaActivitate(Activitate a) {
 		this.activitati.add(a);
-		a.adaugaElev(this);		
+		a.adaugaElev(this);
 	}
 
 	public Clasa getClasa() {
@@ -34,7 +33,7 @@ public class Elev extends Persoana {
 	public void setActivitati(ArrayList<Activitate> activitati) {
 		this.activitati = activitati;
 	}
-	
+
 	public double getNumerarCont() {
 		return numerarCont;
 	}
@@ -49,12 +48,10 @@ public class Elev extends Persoana {
 		System.out.println("Clasa: " + this.getClasa().getNume());
 		System.out.println("Numerar cont: " + this.getNumerarCont());
 		System.out.println("Activititati: ");
-		for(Activitate a: activitati) {
+		for (Activitate a : activitati) {
 			System.out.println(a.getNume());
 		}
-		
+
 	}
-	
-	
-	
+
 }
