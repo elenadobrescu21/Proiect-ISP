@@ -29,7 +29,7 @@ public class Administrator {
 		System.out.println("Introduceti numar maxim de participanti:");
 		int nrMaxParticipanti = scan.nextInt();
 		System.out.println("Introduceti taxa: ");
-		double taxa = scan.nextDouble();
+		float taxa = scan.nextFloat();
 		System.out.println("Introduceti termen limita inscriere: ");
 		System.out.println("Ziua: ");
 		int ziLimita = scan.nextInt();

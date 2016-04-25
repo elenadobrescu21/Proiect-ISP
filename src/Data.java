@@ -38,35 +38,47 @@ public class Data {
 
 	@Override
 	public String toString() {
-		String luna = " ";
+		String lunaString = " ";
 		switch (this.luna) {
 		case 1:
-			luna = "Ianuarie";
+			lunaString = "Ianuarie";
+			break;
 		case 2:
-			luna = "Februarie";
+			lunaString = "Februarie";
+			break;
 		case 3:
-			luna = "Martie";
+			lunaString = "Martie";
+			break;
 		case 4:
-			luna = "Aprilie";
+			lunaString = "Aprilie";
+			break;
 		case 5:
-			luna = "Mai";
+			lunaString = "Mai";
+			break;
 		case 6:
-			luna = "Iunie";
+			lunaString = "Iunie";
+			break;
 		case 7:
-			luna = "Iulie";
+			lunaString = "Iulie";
+			break;
 		case 8:
-			luna = "August";
+			lunaString = "August";
+			break;
 		case 9:
-			luna = "Septembrie";
+			lunaString = "Septembrie";
+			break;
 		case 10:
-			luna = "Octombrie";
+			lunaString = "Octombrie";
+			break;
 		case 11:
-			luna = "Noiembrie";
+			lunaString = "Noiembrie";
+			break;
 		case 12:
-			luna = "Decembrie";
+			lunaString = "Decembrie";
+			break;
 		}
 
-		return this.zi + " " + luna + " " + this.an;
+		return this.zi + " " + lunaString + " " + this.an;
 	}
 
 	public int comparaCuDataCurenta() {

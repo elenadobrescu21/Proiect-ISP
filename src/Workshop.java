@@ -3,7 +3,7 @@ public class Workshop extends Activitate {
 	private String tematica;
 	private Sala sala;
 
-	public Workshop(String nume, Data dataDesfasurare, double taxa, Data termenLimitaInscriere, int nrMaximParticipanti,
+	public Workshop(String nume, Data dataDesfasurare, float taxa, Data termenLimitaInscriere, int nrMaximParticipanti,
 			int oraIncepere, String tematica, Sala sala) {
 		super(nume, dataDesfasurare, taxa, termenLimitaInscriere, nrMaximParticipanti, oraIncepere);
 		this.tematica = tematica;

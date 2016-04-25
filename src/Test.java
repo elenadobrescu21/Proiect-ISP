@@ -64,5 +64,5 @@ public class Test extends TestCase {
 		// boolean result = a.verificareCont(e);
 		// assertTrue("Contul se gaseste in lista", result);
 	}
-
+	
 }

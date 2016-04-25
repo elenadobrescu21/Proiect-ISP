@@ -8,13 +8,13 @@ public class Activitate {
 	private CadruDidactic responsabil;
 	private ArrayList<Elev> eleviParticipanti;
 	private Data dataDesfasurare;
-	private double taxa; // Cicu - merge si float
+	private float taxa; 
 	private Data termenLimitaInscriere;
 	private int nrMaximParticipanti;
 	private int oraIncepere;
 	private String stare;
 
-	public Activitate(String nume, Data dataDesfasurare, double taxa, Data termenLimitaInscriere,
+	public Activitate(String nume, Data dataDesfasurare, float taxa, Data termenLimitaInscriere,
 			int nrMaximParticipanti, int oraIncepere) {
 		this.nume = nume;
 		this.dataDesfasurare = dataDesfasurare;
@@ -59,7 +59,7 @@ public class Activitate {
 		return taxa;
 	}
 
-	public void setTaxa(double taxa) {
+	public void setTaxa(float taxa) {
 		this.taxa = taxa;
 	}
 
@@ -145,6 +145,19 @@ public class Activitate {
 	// De implementat daca e cazul , daca nu sterse din diagrama
 	// modificaActivitate()
 	// verificaDisponibilitate()
-	// vizualizareDetalii()
 
+	public void vizualizareDetalii() {
+		System.out.println("Activitatea de : " + this.getNume());
+		if (this.getResponsabil() == null) {
+			System.out.println("Activitatea nu are un responsabil");
+		} else {
+			System.out.println("Responsabil : " + this.getResponsabil());
+		}
+		System.out.println("Numar maxim participanti = " + this.getNrMaximParticipanti() + " persoane");
+		System.out.println("Ora de incepere a activitatii este : " + this.getOraIncepere() + " AM");
+		System.out.println("Taxa evenimentului este = " + this.getTaxa() + " RON");
+		System.out.println("Inscrierile se pot face pana la data de : " + this.getTermenLimitaInscriere().toString());
+		System.out.println("Evenimentul se va desfasura pana la data de : " + this.getDataDesfasurare().toString());
+
+	}
 }
