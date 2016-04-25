@@ -89,7 +89,7 @@ public class Data {
 		String ziua = splited[2];
 		String an = splited[5];
 		int lunaInteger = 0;
-		int rezultat = -9777;
+		int rezultat = -1;
 		switch (luna) {
 		case "Jan":
 			lunaInteger = 1;

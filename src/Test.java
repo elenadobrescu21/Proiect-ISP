@@ -61,8 +61,16 @@ public class Test extends TestCase {
 		Cont c = new Cont("Dobrescu.Elena", "pppppp");
 		a.adaugaContElev(c);
 		a.creareCont(e);
-		// boolean result = a.verificareCont(e);
-		// assertTrue("Contul se gaseste in lista", result);
+		 boolean result = a.verificareContElev(c);
+		assertTrue("Contul se gaseste in lista", result);
+	}
+	
+	@org.junit.Test
+	public void testToStringData() {
+		Data d = new Data(2016, 6, 21);
+		String expected = "21 Iunie 2016";	
+		boolean OK = expected.equals(d.toString());
+		assertTrue("Data este corecta ", OK);
 	}
 	
 }
