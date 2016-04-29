@@ -9,6 +9,10 @@ public class Sala {
 		this.nrLocuri = nrLocuri;
 		this.etaj = etaj;
 	}
+	
+	public Sala() {
+		
+	}
 
 	public int getNrSala() {
 		return nrSala;

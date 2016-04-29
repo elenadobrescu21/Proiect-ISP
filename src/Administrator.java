@@ -7,14 +7,16 @@ public class Administrator {
 	private ArrayList<Cont> conturiElev;
 	private ArrayList<Cont> conturiCadruDidactic;
 	private ArrayList<Activitate> activitati;
+	private Cont cont;
 
 	public Administrator() {
 		conturiElev = new ArrayList<Cont>();
 		conturiCadruDidactic = new ArrayList<Cont>();
+		cont = new Cont("admin", "admin");
 	}
 
 	// metoda Vali
-	public void adaugaActivitate() {
+	public void adaugaActivitate(ArrayList<Sponsor> sponsori, ArrayList<Sala> sali, ArrayList<Clasa> clase ) { 
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Introduceti nume activitate");
 		String nume = scan.nextLine();
@@ -59,12 +61,78 @@ public class Administrator {
 			System.out.println("Introduceti sponsor:");
 			System.out.println("Nume firma: ");
 			String firmaSponsor = scan.nextLine();
+			System.out.println("Introduceti nr sala: ");
+			int sala = scan.nextInt();
+			Sala salaConcurs = new Sala();
+			for(Sala s : sali) {
+				if(s.getNrSala() == sala) {
+					salaConcurs = s;
+					break;					
+				}
+			}
 			Sponsor sp = new Sponsor(firmaSponsor);
-			Activitate a = new Concurs(nume, dataDesfasurare, taxa, dataLimita, nrMaxParticipanti, ora, disciplina, sp);
+			Concurs concurs = new Concurs(nume, dataDesfasurare, taxa, dataLimita, nrMaxParticipanti, ora, disciplina, sp, salaConcurs);
+			sp.adaugaActivitateSponsorizata(concurs);
+			sponsori.add(sp);
+			this.activitati.add(concurs);
 		}
-		// De implementat:
-		// sedinta/workshop/excursie
-
+		
+		if(c == 's') {
+			System.out.println("Activitate de tip sedinta");
+			System.out.println("Introducei clasa: ");
+			String numeClasa = scan.nextLine();
+			System.out.println("Introduceti nr sala: ");
+			int sala = scan.nextInt();
+			Sala salaSedinta= new Sala();
+			for(Sala s : sali) {
+				if(s.getNrSala() == sala) {
+					salaSedinta = s;
+					break;					
+				}
+			}
+			for(Clasa cls:clase) {
+				if(cls.getNume().equals(numeClasa)) {
+					Sedinta s = new Sedinta(nume, dataDesfasurare, taxa, dataLimita,nrMaxParticipanti, ora, cls);
+					this.activitati.add(s);
+					break;
+				}
+			}		
+		}
+		
+		if(c == 'w') {
+			System.out.println("Activitate de tip workshop");
+			System.out.println("Introduceti tematica: ");
+			String tematica = scan.nextLine();
+			System.out.println("Introduceti nr sala: ");
+			int sala = scan.nextInt();
+			Sala salaWorkshop = new Sala();
+			for(Sala s : sali) {
+				if(s.getNrSala() == sala) {
+					salaWorkshop = s;
+					break;					
+				}
+			}
+			Workshop w = new Workshop(nume, dataDesfasurare, taxa, dataLimita, nrMaxParticipanti, ora, tematica, salaWorkshop);	
+			this.activitati.add(w);
+		}
+		
+		if(c == 'e') {
+			System.out.println("Activitate de tip excursie");
+			System.out.println("Cate obiective turistice se vor vizita?");
+			int nrObiective = scan.nextInt();
+			ArrayList<ObiectivTuristic> obiective = new ArrayList<ObiectivTuristic>(nrObiective);
+			for(int i = 0; i < nrObiective; i++) {
+				System.out.println("Nume obiectiv: ");
+				String numeObiectiv = scan.nextLine();
+				System.out.println("Locatie: ");
+				String locatie = scan.nextLine();
+				obiective.add(new ObiectivTuristic(numeObiectiv, locatie));
+				
+			}
+			Excursie e = new Excursie(nume, dataDesfasurare, taxa, dataLimita, nrMaxParticipanti, ora, obiective);
+			this.activitati.add(e);
+		}
+		
 		// Cicu - Fix Bug Leak
 		// Cred ca poate fi inchis si mai sus
 		// Scannerul trebuie inchis dupa ce nu mai se citeste din consola/fisier

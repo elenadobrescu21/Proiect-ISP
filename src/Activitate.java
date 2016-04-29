@@ -25,6 +25,10 @@ public class Activitate {
 		this.stare = "creata";
 		eleviParticipanti = new ArrayList<Elev>();
 	}
+	
+	public Activitate() {
+		
+	}
 
 	public CadruDidactic getResponsabil() {
 		return responsabil;
