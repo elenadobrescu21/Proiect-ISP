@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class Sedinta extends Activitate {
 
 	private Clasa clasa;
@@ -24,6 +26,17 @@ public class Sedinta extends Activitate {
 	public void setSala(Sala sala) {
 		this.sala = sala;
 	}
+	
+	public void asigneazaResponsabil(List<Clasa> clase) {
+		for(Clasa cls : clase) {
+			if(this.clasa.getNume().equals(cls.getNume())) {
+				this.setResponsabil(cls.getResponsabil());
+			}
+		}
+		
+	}
+	
+	
 	
 	//De implementat public void modificaSedinta(){}
 

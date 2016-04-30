@@ -12,7 +12,7 @@ public class Main {
 			System.out.println("1 - cont de cadru didactic");
 			System.out.println("2 - cont de elev");
 			System.out.println("3 - administrator");
-			System.out.println("4 -  secretara");
+			System.out.println("4 - secretara");
 			System.out.println("5 - sponsor");
 			System.out.println("6 - parinte");
 			
@@ -35,9 +35,9 @@ public class Main {
 		List<Sala> sali = new ArrayList<Sala>();
 		Secretara secretara = new Secretara("Voiculescu", "Monica","2840621460046" );
 		
-		Sala s1 = new Sala(12, 30, 1);
-		Sala s2 = new Sala(10, 30, 1);
-		Sala s3 = new Sala(11, 30, 1);
+		Sala s1 = new Sala(12, 50, 1);
+		Sala s2 = new Sala(10, 50, 1);
+		Sala s3 = new Sala(11, 50, 1);
 		
 		sali.add(s1);
 		sali.add(s2);
@@ -65,6 +65,14 @@ public class Main {
 		listaProfesori.add(c1);
 		listaProfesori.add(c2);
 		listaProfesori.add(c3);
+		
+		clase.add(cls);
+		clase.add(cls2);
+		clase.add(cls3);
+		
+		sponsori.add(sp1);
+		sponsori.add(sp2);
+		
 
 		Administrator admin = new Administrator();
 		admin.creareCont(e1);
@@ -72,6 +80,41 @@ public class Main {
 		admin.creareCont(e3);
 
 		admin.creareCont(c1);
+		//creare concurs
+		Data dataConcurs = new Data(25, 5, 2016);
+		Data termenInscriereConcurs = new Data(23, 5, 2016);
+		
+		Concurs concurs = new Concurs("Cangurul", dataConcurs, 10, termenInscriereConcurs, 50, 8, "matematica", sp1, s1);
+		concurs.asigneazaResponsabil(c1);
+		
+		//creare sedinta
+		Data dataSedinta = new Data(21, 5, 2016);
+		Data termenLimita = new Data(20, 5, 2015);
+		Sedinta sedinta = new Sedinta("Sedinta 8A", dataSedinta,0, termenLimita, 30, 17, cls);
+		sedinta.asigneazaResponsabil(clase);
+		
+		//creare excursie
+		ArrayList<ObiectivTuristic> obiective = new ArrayList<ObiectivTuristic>();
+		Data dataExcursie = new Data(1, 6, 2016);
+		Data termenLimitaExcursie = new Data(29, 5, 2016);
+		obiective.add(new ObiectivTuristic("Castelul Peles", "Sinaia"));
+		obiective.add(new ObiectivTuristic("Castelul Pelisor", "Sinaia"));
+		
+		Excursie excursie = new Excursie("Excursie la Sinaia", dataExcursie, 120, termenLimitaExcursie, 50, 8, obiective);
+		excursie.asigneazaResponsabil(c2);
+		
+		//creare workshop
+		Data dataWorkshop = new Data(27, 5, 2016);
+		Data termenLimitaWorkshop = new Data(25, 5, 2016);
+		Workshop workshop = new Workshop("Workshop HTML", dataWorkshop, 0, termenLimitaWorkshop, 20, 15, "HTML", s2);
+		workshop.asigneazaResponsabil(c3);
+		
+		admin.adaugaActivitate(concurs);
+		admin.adaugaActivitate(excursie);
+		admin.adaugaActivitate(workshop);
+		admin.adaugaActivitate(sedinta);
+			
+		//admin.adaugaActivitate(sponsori, sali, clase);
 		
 		Scanner s = new Scanner(System.in);
 		int tipCont = alegereTipCont();

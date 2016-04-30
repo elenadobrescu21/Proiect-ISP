@@ -26,5 +26,7 @@ public class Clasa {
 	public void setResponsabil(CadruDidactic responsabil) {
 		this.responsabil = responsabil;
 	}
+	
+	
 
 }

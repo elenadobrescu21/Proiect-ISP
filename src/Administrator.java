@@ -10,13 +10,28 @@ public class Administrator {
 	private Cont cont;
 
 	public Administrator() {
-		conturiElev = new ArrayList<Cont>();
-		conturiCadruDidactic = new ArrayList<Cont>();
+		this.conturiElev = new ArrayList<Cont>();
+		this.conturiCadruDidactic = new ArrayList<Cont>();
+		this.activitati = new ArrayList<Activitate>();
 		cont = new Cont("admin", "admin");
+	}
+	
+	public void adaugaActivitate(Activitate a) {
+		this.activitati.add(a);
+	}
+	
+	
+
+	public ArrayList<Activitate> getActivitati() {
+		return activitati;
+	}
+
+	public void setActivitati(ArrayList<Activitate> activitati) {
+		this.activitati = activitati;
 	}
 
 	// metoda Vali
-	public void adaugaActivitate(ArrayList<Sponsor> sponsori, ArrayList<Sala> sali, ArrayList<Clasa> clase ) { 
+	public void adaugaActivitate(List<Sponsor> sponsori, List<Sala> sali, List<Clasa> clase ) { 
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Introduceti nume activitate");
 		String nume = scan.nextLine();
@@ -122,10 +137,11 @@ public class Administrator {
 			int nrObiective = scan.nextInt();
 			ArrayList<ObiectivTuristic> obiective = new ArrayList<ObiectivTuristic>(nrObiective);
 			for(int i = 0; i < nrObiective; i++) {
+				Scanner scan6 = new Scanner(System.in);
 				System.out.println("Nume obiectiv: ");
-				String numeObiectiv = scan.nextLine();
+				String numeObiectiv = scan6.nextLine();
 				System.out.println("Locatie: ");
-				String locatie = scan.nextLine();
+				String locatie = scan6.nextLine();
 				obiective.add(new ObiectivTuristic(numeObiectiv, locatie));
 				
 			}
@@ -136,7 +152,7 @@ public class Administrator {
 		// Cicu - Fix Bug Leak
 		// Cred ca poate fi inchis si mai sus
 		// Scannerul trebuie inchis dupa ce nu mai se citeste din consola/fisier
-		scan.close();
+		//scan.close();
 
 	}
 
