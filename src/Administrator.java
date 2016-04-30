@@ -3,7 +3,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Administrator {
-	// Grasu zicea ca ar fi mers si conturi de admin
 	private ArrayList<Cont> conturiElev;
 	private ArrayList<Cont> conturiCadruDidactic;
 	private ArrayList<Activitate> activitati;
@@ -20,8 +19,6 @@ public class Administrator {
 		this.activitati.add(a);
 	}
 	
-	
-
 	public ArrayList<Activitate> getActivitati() {
 		return activitati;
 	}
@@ -203,43 +200,62 @@ public class Administrator {
 
 	}
 
-	/*
-	 * public void creareContElev(Elev e) { String numeElev = e.getNume();
-	 * String prenumeElev = e.getPrenume(); String[] prenume =
-	 * prenumeElev.split(" "); String username = numeElev + "." + prenume[0];
-	 * String parola = "parola"; Cont contElev = new Cont(username, parola);
-	 * for(Cont c : this.conturiElev) { if
-	 * (c.getUsername().equals(contElev.getUsername())) { int numarPrenume =
-	 * prenume.length; if(numarPrenume > 1) { username = username + "_" +
-	 * prenume[1]; contElev.setUsername(username); } else { String CNP =
-	 * e.getCNP(); String numbers = CNP.substring(Math.max(0, CNP.length() -
-	 * 4)); username = username + numbers; contElev.setUsername(username); }
-	 * 
-	 * } }
-	 * 
-	 * this.conturiElev.add(contElev); e.setCont(contElev); }
-	 * 
-	 * public void creareContCadruDidactic(CadruDidactic cd){
-	 * 
-	 * String numeProfesor = cd.getNume(); String prenumeProfesor =
-	 * cd.getPrenume(); String[] prenume = prenumeProfesor.split(" "); String
-	 * username = numeProfesor + "." + prenume[0]; String parola = "parola";
-	 * Cont contProfesor = new Cont(username, parola); for(Cont c :
-	 * this.conturiElev) { if
-	 * (c.getUsername().equals(contProfesor.getUsername())) { int numarPrenume =
-	 * prenume.length; if(numarPrenume > 1) { username = username + "_" +
-	 * prenume[1]; contProfesor.setUsername(username); } else { String CNP =
-	 * cd.getCNP(); String numbers = CNP.substring(Math.max(0, CNP.length() -
-	 * 4)); username = username + numbers; contProfesor.setUsername(username); }
-	 * 
-	 * } }
-	 * 
-	 * this.conturiCadruDidactic.add(contProfesor); cd.setCont(contProfesor);
-	 * 
-	 * 
-	 * 
-	 * }
-	 */
+	public void creareContElev(Elev e) {
+		String numeElev = e.getNume();
+		String prenumeElev = e.getPrenume();
+		String[] prenume = prenumeElev.split(" ");
+		String username = numeElev + "." + prenume[0];
+		String parola = "parola";
+		Cont contElev = new Cont(username, parola);
+		for (Cont c : this.conturiElev) {
+			if (c.getUsername().equals(contElev.getUsername())) {
+				int numarPrenume = prenume.length;
+				if (numarPrenume > 1) {
+					username = username + "_" + prenume[1];
+					contElev.setUsername(username);
+				} else {
+					String CNP = e.getCNP();
+					String numbers = CNP.substring(Math.max(0, CNP.length() - 4));
+					username = username + numbers;
+					contElev.setUsername(username);
+				}
+
+			}
+		}
+
+		this.conturiElev.add(contElev);
+		e.setCont(contElev);
+	}
+
+	public void creareContCadruDidactic(CadruDidactic cd) {
+
+		String numeProfesor = cd.getNume();
+		String prenumeProfesor = cd.getPrenume();
+		String[] prenume = prenumeProfesor.split(" ");
+		String username = numeProfesor + "." + prenume[0];
+		String parola = "parola";
+		Cont contProfesor = new Cont(username, parola);
+		for (Cont c : this.conturiElev) {
+			if (c.getUsername().equals(contProfesor.getUsername())) {
+				int numarPrenume = prenume.length;
+				if (numarPrenume > 1) {
+					username = username + "_" + prenume[1];
+					contProfesor.setUsername(username);
+				} else {
+					String CNP = cd.getCNP();
+					String numbers = CNP.substring(Math.max(0, CNP.length() - 4));
+					username = username + numbers;
+					contProfesor.setUsername(username);
+				}
+
+			}
+		}
+
+		this.conturiCadruDidactic.add(contProfesor);
+		cd.setCont(contProfesor);
+
+	}
+	
 
 	// Cicu - doar o functie de verificare
 	// In diagrama e doar verificareCont
@@ -267,19 +283,30 @@ public class Administrator {
 
 	}
 
-	/* De implementat , Modificarile poate le putem face tot intr-o functie
+	 //De implementat , Modificarile poate le putem face tot intr-o functie
 	
-	public void modificareDateElev() {
-
+	//am considerat ca pentru un elev se poate modifica doar clasa
+	public void modificareDateElev(Clasa clasa, List<Elev> listaElevi, String numeElev, String prenumeElev) {
+		for(Elev e : listaElevi) {
+			if(e.getNume().equals(numeElev)&& e.getPrenume().equals(prenumeElev)) {
+				e.setClasa(clasa);
+			}
+		}
 	}
 
-	public void modificareDateCadruD() {
+	//am considerat ca isi poate modifica doar numele
+	public void modificareDateCadruD(List<CadruDidactic> profesori, String numeActual, String prenume, String numeNou) {
+		for(CadruDidactic c : profesori) {
+			if(c.getNume().equals(numeActual) && c.getPrenume().equals(prenume)) {
+				c.setNume(numeNou);
+			}
+		}
 
 	}
 
 	public void cautaActivitate() {
 
 	}
-	*/
+	
 
 }

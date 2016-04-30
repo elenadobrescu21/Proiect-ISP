@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class CadruDidactic extends Persoana {
 
@@ -9,13 +10,14 @@ public class CadruDidactic extends Persoana {
 		activitatiCoordonate = new ArrayList<Activitate>();
 	}
 
-	// - nu exista o lista globala de cnp-uri
-	public void veziDetaliiElev(String cnp) {
-		// Parcurge toata lista de cnp-uri
-
-		// Daca l-ai gasit , afiseaza-l
+	//am modificat din parametru CNP sa ia ca parametru nume si prenume
+	public void veziDetaliiElev(String nume, String prenume, List<Elev> elevi) {
+		for(Elev e: elevi) {
+			if(e.getNume().equals(nume)&& e.getPrenume().equals(prenume)) {
+				e.afiseazaInformatii();
+			}
+		}		
 	}
-
 
 	// Se verifica daca activitatea pe care o adaugam daca o are deja in
 	// coordonare
@@ -28,9 +30,7 @@ public class CadruDidactic extends Persoana {
 		} else {
 			activitatiCoordonate.add(a);
 			System.out.println("Activitatea a fost adauga cu succes ! ");
-
 		}
-
 		return;
 	}
 
@@ -42,7 +42,7 @@ public class CadruDidactic extends Persoana {
 		} else {
 
 			for (Activitate a : activitatiCoordonate) {
-				System.out.println(a.getNume() + " desfasurata la data de " + a.getDataDesfasurare());
+				System.out.println(a.getNume() + " desfasurata la data de " + a.getDataDesfasurare().toString());
 			}
 		}
 	}
@@ -53,4 +53,33 @@ public class CadruDidactic extends Persoana {
 		System.out.println("Activititati: ");
 		this.veziActivitatiCoordonate();
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((activitatiCoordonate == null) ? 0 : activitatiCoordonate.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		CadruDidactic other = (CadruDidactic) obj;
+		if (activitatiCoordonate == null) {
+			if (other.activitatiCoordonate != null)
+				return false;
+		} else if (!activitatiCoordonate.equals(other.activitatiCoordonate))
+			return false;
+		return true;
+	}
+	
+	
+	
+	
 }
