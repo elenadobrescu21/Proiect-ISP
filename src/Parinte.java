@@ -21,9 +21,6 @@ public class Parinte extends Persoana{
 			}
 		}
 		
-	
 	}
 	
-	
-
 }

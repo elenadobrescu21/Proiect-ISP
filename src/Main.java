@@ -22,6 +22,82 @@ public class Main {
 		return tipCont;
 		
 	}
+	
+	public static void logareSecretara(Secretara secretara, List<Elev> listaElevi, List<CadruDidactic> listaProfesori) {
+		Scanner s = new Scanner(System.in);
+		System.out.println("Cont de secretara");
+		String parolaSecretara ="";
+		String usernameSecretara="";
+		boolean logat = false;
+		do{
+		System.out.println("Introduceti username");
+		usernameSecretara = s.nextLine();
+		System.out.println("Introduceti parola");
+		 parolaSecretara = s.nextLine();
+		}while(usernameSecretara.equals("secretara")==false && parolaSecretara.equals("secretara")==false);
+		logat = true;
+		System.out.println("1 - Vizualizare date despre un elev");
+		System.out.println("2 - Vizualizare date despre un cadru didactic");
+		do {
+		int alegere;	
+		do{
+			System.out.println("Alegeti optiunea");				
+			alegere = s.nextInt();	
+		}while(alegere!=1 && alegere!=2);
+		if( alegere == 1) {
+			String numeElev="";
+			String prenumeElev="";
+			Scanner scan = new Scanner(System.in);
+			System.out.println("Nume elev:");
+			numeElev = scan.nextLine();
+			System.out.println("Prenume elev:");
+			prenumeElev = scan.nextLine();
+			secretara.vizualizareDateElev(listaElevi, numeElev, prenumeElev);
+			//scan.close();
+		}
+		if(alegere == 2) {
+			Scanner scan3 = new Scanner(System.in);
+			System.out.println("Nume profesor: ");
+			String numeProfesor = scan3.nextLine();
+			System.out.println("Prenume profesor");
+			String prenumeProfesor = scan3.nextLine();
+			secretara.vizualizareDateCadruDidactic(listaProfesori, numeProfesor, prenumeProfesor);
+		}
+		System.out.println("Doriti sa va delogati? da/nu");
+		Scanner scan2 = new Scanner(System.in);
+		String raspuns="";
+		 raspuns= scan2.nextLine();
+		
+		if(raspuns.equals("da")){
+			logat = false;
+		}			
+		} while(logat == true);	
+	}
+	
+	public static void logareSponsor(List<Sponsor> sponsori) {
+		Scanner scan5 = new Scanner(System.in);
+		System.out.println("Cont de sponsor");
+		String parolaSponsor ="";
+		String usernameSponsor="";
+		boolean logat = false;
+		boolean userExistent = false;
+		Sponsor sponsorLogat = new Sponsor();
+		do{
+			System.out.println("Introduceti username");
+			usernameSponsor= scan5.nextLine();
+			for(Sponsor sp : sponsori) {
+				if(sp.getFirma().equals(usernameSponsor)) {
+					userExistent = true;
+					sponsorLogat = sp;
+					break;
+				}
+			}
+			System.out.println("Introduceti parola");
+			 parolaSponsor = scan5.nextLine();
+			}while(userExistent == false && parolaSponsor.equals("sponsor")==false);			
+			sponsorLogat.veziActivitatiSponsorizate();	
+		
+	}
 	public static void main(String[] args) {
 		
 		Elev e1 = new Elev("Dobrescu", "Elena", "2940621460044", 600);
@@ -117,86 +193,17 @@ public class Main {
 		//admin.adaugaActivitate(sponsori, sali, clase);
 		
 		Scanner s = new Scanner(System.in);
+		String raspuns;
+		do {
 		int tipCont = alegereTipCont();
-		
-		//pentru secretara
-		if(tipCont == 4) {
-			System.out.println("Cont de secretara");
-			String parolaSecretara ="";
-			String usernameSecretara="";
-			boolean logat = false;
-			do{
-			System.out.println("Introduceti username");
-			usernameSecretara = s.nextLine();
-			System.out.println("Introduceti parola");
-			 parolaSecretara = s.nextLine();
-			}while(usernameSecretara.equals("secretara")==false && parolaSecretara.equals("secretara")==false);
-			logat = true;
-			System.out.println("1 - Vizualizare date despre un elev");
-			System.out.println("2 - Vizualizare date despre un cadru didactic");
-			do {
-			int alegere;	
-			do{
-				System.out.println("Alegeti optiunea");				
-				alegere = s.nextInt();	
-			}while(alegere!=1 && alegere!=2);
-			if( alegere == 1) {
-				String numeElev="";
-				String prenumeElev="";
-				Scanner scan = new Scanner(System.in);
-				System.out.println("Nume elev:");
-				numeElev = scan.nextLine();
-				System.out.println("Prenume elev:");
-				prenumeElev = scan.nextLine();
-				secretara.vizualizareDateElev(listaElevi, numeElev, prenumeElev);
-				//scan.close();
-			}
-			if(alegere == 2) {
-				Scanner scan3 = new Scanner(System.in);
-				System.out.println("Nume profesor: ");
-				String numeProfesor = scan3.nextLine();
-				System.out.println("Prenume profesor");
-				String prenumeProfesor = scan3.nextLine();
-				secretara.vizualizareDateCadruDidactic(listaProfesori, numeProfesor, prenumeProfesor);
-			}
-			System.out.println("Doriti sa va delogati? da/nu");
-			Scanner scan2 = new Scanner(System.in);
-			String raspuns="";
-			 raspuns= scan2.nextLine();
-			
-			if(raspuns.equals("da")){
-				logat = false;
-			}			
-			} while(logat == true);
-		
-		}
-		
-		//tipCont = alegereTipCont();
-		//pentru cont de sponsor
-		if(tipCont == 5) {
-			Scanner scan5 = new Scanner(System.in);
-			System.out.println("Cont de sponsor");
-			String parolaSponsor ="";
-			String usernameSponsor="";
-			boolean logat = false;
-			boolean userExistent = false;
-			Sponsor sponsorLogat = new Sponsor();
-			do{
-				System.out.println("Introduceti username");
-				usernameSponsor= s.nextLine();
-				for(Sponsor sp : sponsori) {
-					if(sp.getFirma().equals(usernameSponsor)) {
-						userExistent = true;
-						sponsorLogat = sp;
-						break;
-					}
-				}
-				System.out.println("Introduceti parola");
-				 parolaSponsor = s.nextLine();
-				}while(userExistent == false && parolaSponsor.equals("sponsor")==false);			
-				sponsorLogat.veziActivitatiSponsorizate();	
-		}
-		
+		   switch(tipCont) {
+		   case 4: logareSecretara(secretara,listaElevi, listaProfesori);break;
+		   case 5: logareSponsor(sponsori);break;
+		   }
+	     System.out.println("Continuati?Da/nu");
+	     raspuns = s.nextLine();
+		}while(raspuns.equals("da"));
+	
 		
 		
 		
