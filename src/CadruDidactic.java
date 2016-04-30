@@ -46,4 +46,11 @@ public class CadruDidactic extends Persoana {
 			}
 		}
 	}
+	
+	public void afiseazaInformatii() {
+		System.out.println("Nume: " + this.getNume());
+		System.out.println("Prenume: " + this.getPrenume());
+		System.out.println("Activititati: ");
+		this.veziActivitatiCoordonate();
+	}
 }

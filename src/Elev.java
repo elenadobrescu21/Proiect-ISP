@@ -43,8 +43,13 @@ public class Elev extends Persoana {
 		System.out.println("Clasa: " + this.getClasa().getNume());
 		System.out.println("Numerar cont: " + this.getNumerarCont());
 		System.out.println("Activititati: ");
-		for (Activitate a : activitati) {
-			System.out.println(a.getNume());
+		if(this.activitati.size() == 0) {
+			System.out.println("Elevul nu s-a inscris la nicio activitate");
+		}
+		else {
+			for (Activitate a : activitati) {
+				System.out.println(a.getNume());
+			}
 		}
 
 	}
