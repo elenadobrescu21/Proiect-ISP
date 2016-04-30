@@ -51,9 +51,12 @@ public class Main {
 		Clasa cls2 = new Clasa("7A", c2);
 		Clasa cls3 = new Clasa("6A", c3);
 		
+		Sponsor sp1 = new Sponsor("intel");
+		Sponsor sp2 = new Sponsor("ibm");
+		
 		e1.setClasa(cls);
-		e2.setClasa(cls);
-		e3.setClasa(cls);
+		e2.setClasa(cls2);
+		e3.setClasa(cls3);
         	
 		listaElevi.add(e1);
 		listaElevi.add(e2);
@@ -91,8 +94,7 @@ public class Main {
 			do {
 			int alegere;	
 			do{
-				System.out.println("Alegeti optiunea");
-				
+				System.out.println("Alegeti optiunea");				
 				alegere = s.nextInt();	
 			}while(alegere!=1 && alegere!=2);
 			if( alegere == 1) {
@@ -125,6 +127,34 @@ public class Main {
 			} while(logat == true);
 		
 		}
+		
+		//tipCont = alegereTipCont();
+		//pentru cont de sponsor
+		if(tipCont == 5) {
+			Scanner scan5 = new Scanner(System.in);
+			System.out.println("Cont de sponsor");
+			String parolaSponsor ="";
+			String usernameSponsor="";
+			boolean logat = false;
+			boolean userExistent = false;
+			Sponsor sponsorLogat = new Sponsor();
+			do{
+				System.out.println("Introduceti username");
+				usernameSponsor= s.nextLine();
+				for(Sponsor sp : sponsori) {
+					if(sp.getFirma().equals(usernameSponsor)) {
+						userExistent = true;
+						sponsorLogat = sp;
+						break;
+					}
+				}
+				System.out.println("Introduceti parola");
+				 parolaSponsor = s.nextLine();
+				}while(userExistent == false && parolaSponsor.equals("sponsor")==false);			
+				sponsorLogat.veziActivitatiSponsorizate();	
+		}
+		
+		
 		
 		
 		/*

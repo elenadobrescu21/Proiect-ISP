@@ -3,11 +3,18 @@ import java.util.ArrayList;
 public class Sponsor {
 
 	private String firma;
+	private Cont cont;
 	private ArrayList<Activitate> activitatiSponsorizate;
 
 	public Sponsor(String firma) {
 		this.firma = firma;
 		this.activitatiSponsorizate = new ArrayList<Activitate>();
+		cont = new Cont(firma, "sponsor");
+	}
+	
+	public Sponsor() {
+		this.activitatiSponsorizate = new ArrayList<Activitate>();
+		
 	}
 
 	public String getFirma() {
@@ -31,6 +38,17 @@ public class Sponsor {
 	// Adauga la lista de activitati sponsorizate
 	public void adaugaActivitateSponsorizata(Activitate a) {
 		this.activitatiSponsorizate.add(a);
+	}
+	
+	public void veziActivitatiSponsorizate() {
+		if(this.activitatiSponsorizate.size() == 0) {
+			System.out.println("Nu sponsorizeaza nicio activitate");
+		}
+		else {
+			for(Activitate a: this.activitatiSponsorizate) {
+				System.out.println(a.getNume());
+			}
+		}
 	}
 
 }
