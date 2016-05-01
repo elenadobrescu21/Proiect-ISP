@@ -8,19 +8,37 @@ public class Parinte extends Persoana{
 	public Parinte(String nume, String prenume, String CNP, Clasa clasaCopil) {
 		super(nume, prenume, CNP);
 		this.clasaCopil = clasaCopil;
-		cont = new Cont(nume, "parola");
+		String username = nume + "_" + prenume;
+		cont = new Cont(username, "parola");
 	}
 	
-	public void vizualizareSedinte(List<Activitate> activitati) {
-		for(Activitate a: activitati) {
-			if(a instanceof Sedinta) {
-				if(((Sedinta) a).getClasa().equals(this.clasaCopil)) {
-					System.out.println("Sedinta este in data de "+ a.getDataDesfasurare().toString() + "in sala " +
-				((Sedinta) a).getSala().getNrSala()) ;
-				}
-			}
-		}
+	public Parinte(){
 		
+	}
+	
+	public void vizualizareSedinte(List<Sedinta> activitati) {
+		for(Sedinta a: activitati) {
+				if( a.getClasa().equals(this.clasaCopil)) {
+					System.out.println("Sedinta este in data de "+ a.getDataDesfasurare().toString() + " in sala " +
+				 a.getSala().getNrSala() + ", etaj " + a.getSala().getEtaj()) ;
+				}			
+		}	
+	}
+
+	public Clasa getClasaCopil() {
+		return clasaCopil;
+	}
+
+	public void setClasaCopil(Clasa clasaCopil) {
+		this.clasaCopil = clasaCopil;
+	}
+
+	public Cont getCont() {
+		return cont;
+	}
+
+	public void setCont(Cont cont) {
+		this.cont = cont;
 	}
 	
 }

@@ -11,6 +11,10 @@ public class Persoana {
 		this.prenume = prenume;
 		this.CNP = CNP;
 	}
+	
+	public Persoana() {
+		
+	}
 
 	public String getNume() {
 		return nume;

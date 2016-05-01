@@ -10,6 +10,21 @@ public class Sedinta extends Activitate {
 		super(nume, dataDesfasurare, taxa, termenLimitaInscriere, nrMaximParticipanti, oraIncepere);
 		this.clasa = clasa;
 	}
+	
+	
+	
+	public Sedinta(String nume, Data dataDesfasurare, float taxa, Data termenLimitaInscriere, int nrMaximParticipanti,
+			int oraIncepere, Clasa clasa, Sala sala) {
+		super(nume, dataDesfasurare, taxa, termenLimitaInscriere, nrMaximParticipanti, oraIncepere);
+		this.clasa = clasa;
+		this.sala = sala;
+	}
+
+
+
+	public Sedinta(){
+		
+	}
 
 	public Clasa getClasa() {
 		return clasa;

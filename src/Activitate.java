@@ -164,4 +164,6 @@ public class Activitate {
 		System.out.println("Evenimentul se va desfasura pana la data de : " + this.getDataDesfasurare().toString());
 
 	}
+	
+	
 }

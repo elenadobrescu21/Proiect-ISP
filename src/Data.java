@@ -6,10 +6,11 @@ public class Data {
 	private int luna;
 	private int zi;
 
-	public Data(int an, int luna, int zi) {
-		this.an = an;
-		this.luna = luna;
+	public Data(int zi, int luna, int an) {
 		this.zi = zi;
+		this.luna = luna;
+		this.an = an;
+		
 	}
 
 	public int getAn() {

@@ -23,6 +23,32 @@ public class Main {
 		
 	}
 	
+	public static void logareParinte(List<Parinte> parinti, List<Sedinta> activitati) {
+		Scanner scan6 = new Scanner(System.in);
+		System.out.println("Cont de parinte");
+		String parolaParinte ="";
+		String usernameParinte="";
+		boolean logat = false;
+		boolean userExistent = false;
+		Parinte parinteLogat = new Parinte();
+		do{
+			System.out.println("Introduceti username");
+			usernameParinte= scan6.nextLine();
+			for(Parinte p : parinti) {
+				if(p.getCont().getUsername().equals(usernameParinte) ) {
+					userExistent = true;
+					parinteLogat = p;
+					break;
+				}
+			}
+			System.out.println("Introduceti parola");
+			 parolaParinte = scan6.nextLine();
+			}while(userExistent == false && parolaParinte.equals("parola")==false);			
+			parinteLogat.vizualizareSedinte(activitati);	
+		
+		
+	}
+	
 	public static void logareSecretara(Secretara secretara, List<Elev> listaElevi, List<CadruDidactic> listaProfesori) {
 		Scanner s = new Scanner(System.in);
 		System.out.println("Cont de secretara");
@@ -109,8 +135,10 @@ public class Main {
 		List<Sponsor> sponsori = new ArrayList<Sponsor>();
 		List<Clasa> clase = new ArrayList<Clasa>();
 		List<Sala> sali = new ArrayList<Sala>();
+		List<Parinte> parinti = new ArrayList<Parinte>();
+		List<Sedinta> sedinte = new ArrayList<Sedinta>();
 		Secretara secretara = new Secretara("Voiculescu", "Monica","2840621460046" );
-		
+			
 		Sala s1 = new Sala(12, 50, 1);
 		Sala s2 = new Sala(10, 50, 1);
 		Sala s3 = new Sala(11, 50, 1);
@@ -129,6 +157,10 @@ public class Main {
 		
 		Sponsor sp1 = new Sponsor("intel");
 		Sponsor sp2 = new Sponsor("ibm");
+		
+		Parinte p1 = new Parinte("dobrescu", "steliana","2610621460044", cls);
+		
+		parinti.add(p1);
 		
 		e1.setClasa(cls);
 		e2.setClasa(cls2);
@@ -166,8 +198,9 @@ public class Main {
 		//creare sedinta
 		Data dataSedinta = new Data(21, 5, 2016);
 		Data termenLimita = new Data(20, 5, 2015);
-		Sedinta sedinta = new Sedinta("Sedinta 8A", dataSedinta,0, termenLimita, 30, 17, cls);
+		Sedinta sedinta = new Sedinta("Sedinta 8A", dataSedinta,0, termenLimita, 30, 17, cls,s1);
 		sedinta.asigneazaResponsabil(clase);
+		sedinte.add(sedinta);
 		
 		//creare excursie
 		ArrayList<ObiectivTuristic> obiective = new ArrayList<ObiectivTuristic>();
@@ -199,6 +232,7 @@ public class Main {
 		   switch(tipCont) {
 		   case 4: logareSecretara(secretara,listaElevi, listaProfesori);break;
 		   case 5: logareSponsor(sponsori);break;
+		   case 6: logareParinte(parinti, sedinte); break;
 		   }
 	     System.out.println("Continuati?Da/nu");
 	     raspuns = s.nextLine();
