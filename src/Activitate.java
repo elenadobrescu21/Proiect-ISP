@@ -109,6 +109,7 @@ public class Activitate {
 
 	public void setResponsabil(CadruDidactic responsabil) {
 		this.responsabil = responsabil;
+		responsabil.getActivitatiCoordonate().add(this);
 	}
 
 	// In diagrama e functia : adaugaInListaParticipanti

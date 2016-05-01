@@ -15,7 +15,7 @@ public class Test extends TestCase {
 		Administrator a = new Administrator();
 		Cont c = new Cont("Dobrescu.Elena", "pppppp");
 		a.adaugaContElev(c);
-		a.creareCont(e);
+		a.creareContElev(e);
 		Cont contElev = e.getCont();
 		String username = e.getCont().getUsername();
 		boolean OK;
@@ -31,7 +31,7 @@ public class Test extends TestCase {
 		Administrator a = new Administrator();
 		Cont c = new Cont("Dobrescu.Elena", "pppppp");
 		a.adaugaContElev(c);
-		a.creareCont(e);
+		a.creareContElev(e);
 		Cont contElev = e.getCont();
 		String username = e.getCont().getUsername();
 		boolean OK;
@@ -46,7 +46,7 @@ public class Test extends TestCase {
 	public void testCreareContNeduplicat() {
 		Elev e = new Elev("Dobrescu", "Elena", "2940621460044", 600);
 		Administrator a = new Administrator();
-		a.creareCont(e);
+		a.creareContElev(e);
 		Cont contElev = e.getCont();
 		String username = e.getCont().getUsername();
 		boolean OK;
@@ -57,16 +57,7 @@ public class Test extends TestCase {
 		assertTrue("Contul a fost generat cum trebuie", OK);
 	}
 
-	@org.junit.Test
-	public void testVerificareCont() {
-		Elev e = new Elev("Dobrescu", "Elena", "2940621460044", 600);
-		Administrator a = new Administrator();
-		Cont c = new Cont("Dobrescu.Elena", "pppppp");
-		a.adaugaContElev(c);
-		a.creareCont(e);
-		 boolean result = a.verificareContElev(c);
-		assertTrue("Contul se gaseste in lista", result);
-	}
+	
 	
 	@org.junit.Test
 	public void testToStringData() {
@@ -75,7 +66,7 @@ public class Test extends TestCase {
 		boolean OK = expected.equals(d.toString());
 		assertTrue("Data este corecta ", OK);
 	}
-	/*
+	
 	@org.junit.Test
 	public void testAdaugaActivitate() {
 		List<Sponsor> sponsori = new ArrayList<Sponsor>();
@@ -104,7 +95,7 @@ public class Test extends TestCase {
 		clase.add(cls);	
 		admin.adaugaActivitate(sponsori, sali, clase);
 		assertEquals(numarActivitati+1, admin.getActivitati().size());	
-	} */
+	} 
 	
 	
 	

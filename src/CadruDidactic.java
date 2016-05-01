@@ -9,6 +9,10 @@ public class CadruDidactic extends Persoana {
 		super(nume, prenume, CNP);
 		activitatiCoordonate = new ArrayList<Activitate>();
 	}
+	
+    public CadruDidactic() {
+    	activitatiCoordonate = new ArrayList<Activitate>();
+    }
 
 	//am modificat din parametru CNP sa ia ca parametru nume si prenume
 	public void veziDetaliiElev(String nume, String prenume, List<Elev> elevi) {
@@ -78,6 +82,15 @@ public class CadruDidactic extends Persoana {
 			return false;
 		return true;
 	}
+
+	public ArrayList<Activitate> getActivitatiCoordonate() {
+		return activitatiCoordonate;
+	}
+
+	public void setActivitatiCoordonate(ArrayList<Activitate> activitatiCoordonate) {
+		this.activitatiCoordonate = activitatiCoordonate;
+	}
+	
 	
 	
 	

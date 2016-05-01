@@ -124,6 +124,50 @@ public class Main {
 			sponsorLogat.veziActivitatiSponsorizate();	
 		
 	}
+	
+	public static void logareCadruDidactic(List<Elev> elevi, Administrator admin, List<CadruDidactic> profesori){
+		System.out.println("Cont de cadru didactic");
+		List<Cont> conturiProfesori = new ArrayList<Cont>();
+		Cont contTastatura;
+		CadruDidactic profesorLogat = new CadruDidactic();
+		conturiProfesori = admin.getConturiCadruDidactic();
+		Scanner scan = new Scanner(System.in);
+		boolean logat = false;
+		do {
+		System.out.println("Introduceti username");
+		String usernameProfesor = scan.nextLine();
+		System.out.println("Introduceti parola: ");
+		String parolaProfesor = scan.nextLine();
+	
+		contTastatura = new Cont(usernameProfesor, parolaProfesor);
+		for(Cont cont : conturiProfesori) {
+			if(cont.equals(contTastatura)) {
+				logat = true;
+			}
+		}	
+		}while(logat == false);
+		
+		for(CadruDidactic c: profesori) {
+			if(c.getCont().equals(contTastatura )) {
+				profesorLogat = c;
+			}
+		}
+		System.out.println("Activitati coordonate");
+		profesorLogat.veziActivitatiCoordonate();
+		System.out.println("Doriti sa vizualizati date despre un elev?da/nu");
+		String raspuns = scan.nextLine();
+		if(raspuns.equals("da")){
+			System.out.println("Nume elev:");
+			String numeElev = scan.nextLine();
+			System.out.println("Prenume elev:");
+			String prenumeElev = scan.nextLine();
+			profesorLogat.veziDetaliiElev(numeElev, prenumeElev, elevi);
+		}
+		
+		
+		
+		
+	}
 	public static void main(String[] args) {
 		
 		Elev e1 = new Elev("Dobrescu", "Elena", "2940621460044", 600);
@@ -183,17 +227,20 @@ public class Main {
 		
 
 		Administrator admin = new Administrator();
-		admin.creareCont(e1);
-		admin.creareCont(e2);
-		admin.creareCont(e3);
+		admin.creareContElev(e1);
+		admin.creareContElev(e2);
+		admin.creareContElev(e3);
 
-		admin.creareCont(c1);
+		admin.creareContCadruDidactic(c1);
+		admin.creareContCadruDidactic(c2);
+		admin.creareContCadruDidactic(c3);
+		
 		//creare concurs
 		Data dataConcurs = new Data(25, 5, 2016);
 		Data termenInscriereConcurs = new Data(23, 5, 2016);
 		
 		Concurs concurs = new Concurs("Cangurul", dataConcurs, 10, termenInscriereConcurs, 50, 8, "matematica", sp1, s1);
-		concurs.asigneazaResponsabil(c1);
+		concurs.setResponsabil(c1);
 		
 		//creare sedinta
 		Data dataSedinta = new Data(21, 5, 2016);
@@ -230,6 +277,7 @@ public class Main {
 		do {
 		int tipCont = alegereTipCont();
 		   switch(tipCont) {
+		   case 1: logareCadruDidactic(listaElevi, admin, listaProfesori);break;
 		   case 4: logareSecretara(secretara,listaElevi, listaProfesori);break;
 		   case 5: logareSponsor(sponsori);break;
 		   case 6: logareParinte(parinti, sedinte); break;

@@ -157,7 +157,7 @@ public class Administrator {
 		conturiElev.add(c);
 
 	}
-
+  /*
 	public void creareCont(Persoana p) {
 		// Lista curenta de conturi
 		List<Cont> lista = new ArrayList<Cont>();
@@ -198,7 +198,7 @@ public class Administrator {
 		lista.add(cont);
 		p.setCont(cont);
 
-	}
+	} */
 
 	public void creareContElev(Elev e) {
 		String numeElev = e.getNume();
@@ -307,6 +307,29 @@ public class Administrator {
 	public void cautaActivitate() {
 
 	}
-	
 
+	public ArrayList<Cont> getConturiElev() {
+		return conturiElev;
+	}
+
+	public void setConturiElev(ArrayList<Cont> conturiElev) {
+		this.conturiElev = conturiElev;
+	}
+
+	public ArrayList<Cont> getConturiCadruDidactic() {
+		return conturiCadruDidactic;
+	}
+
+	public void setConturiCadruDidactic(ArrayList<Cont> conturiCadruDidactic) {
+		this.conturiCadruDidactic = conturiCadruDidactic;
+	}
+
+	public Cont getCont() {
+		return cont;
+	}
+
+	public void setCont(Cont cont) {
+		this.cont = cont;
+	}
+	
 }
