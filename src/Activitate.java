@@ -8,11 +8,20 @@ public class Activitate {
 	private CadruDidactic responsabil;
 	private ArrayList<Elev> eleviParticipanti;
 	private Data dataDesfasurare;
-	private float taxa; 
+	private float taxa;
 	private Data termenLimitaInscriere;
 	private int nrMaximParticipanti;
 	private int oraIncepere;
 	private String stare;
+
+	// Cicu - vreau sa vad daca mai sunt sau nu locuri
+	// E functia verificaDisponibilitate REDENUMITA
+	public boolean existaLocuri() {
+		if (this.nrMaximParticipanti == eleviParticipanti.size())
+			return false;
+		else
+			return true;
+	}
 
 	public Activitate(String nume, Data dataDesfasurare, float taxa, Data termenLimitaInscriere,
 			int nrMaximParticipanti, int oraIncepere) {
@@ -25,16 +34,16 @@ public class Activitate {
 		this.stare = "creata";
 		eleviParticipanti = new ArrayList<Elev>();
 	}
-	
+
 	public Activitate() {
-		
+
 	}
 
 	public CadruDidactic getResponsabil() {
 		return responsabil;
 	}
 
-	// Cicu : trebuie modificata si pe diagrama ca nu are param.
+	// Cicu : trebuie modificata si pe diagrama ca nu are param
 	public void asigneazaResponsabil(CadruDidactic responsabil) {
 		this.responsabil = responsabil;
 		if (this.stare.equals("creata"))
@@ -147,9 +156,8 @@ public class Activitate {
 		}
 	}
 
-	// De implementat daca e cazul , daca nu sterse din diagrama
-	// modificaActivitate()
-	// verificaDisponibilitate()
+	// De implementat 
+	// modificaActivitate() - Elena
 
 	public void vizualizareDetalii() {
 		System.out.println("Activitatea de : " + this.getNume());
@@ -163,8 +171,7 @@ public class Activitate {
 		System.out.println("Taxa evenimentului este = " + this.getTaxa() + " RON");
 		System.out.println("Inscrierile se pot face pana la data de : " + this.getTermenLimitaInscriere().toString());
 		System.out.println("Evenimentul se va desfasura pana la data de : " + this.getDataDesfasurare().toString());
-
+		System.out.println();
 	}
-	
-	
+
 }

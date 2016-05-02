@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Administrator {
 	private ArrayList<Cont> conturiElev;
 	private ArrayList<Cont> conturiCadruDidactic;
+	//Toate activitatile posibile
 	private ArrayList<Activitate> activitati;
 	private Cont cont;
 
