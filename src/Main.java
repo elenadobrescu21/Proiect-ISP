@@ -282,29 +282,84 @@ public class Main {
 		 * cd.veziActivitatiCoordonate();
 		 */
 
-		// TEST 3 FUNCTII ELEV - CICU
-		Activitate a1 = new Activitate("Fotbal", new Data(5, 12, 2016), 10, new Data(5, 12, 2017), 0, 10);
-		Activitate a2 = new Activitate("Baschet", new Data(6, 12, 2016), 100, new Data(5, 12, 2018), 20, 10);
-		Activitate a3 = new Activitate("School", new Data(7, 12, 2016), 150, new Data(5, 12, 2019), 20, 10);
-		Activitate a4 = new Activitate("Facultate", new Data(8, 12, 2016), 200, new Data(5, 12, 2020), 20, 10);
+		// TEST  FUNCTII ELEV +  MODIFICARE ACTIVITATE,DATA,SEDINTA,SALA,WORKSHOP- CICU
+		
+		/*  Activitate a1 = new Activitate("Fotbal", new Data(5, 12, 2016), 10,
+		  new Data(5, 12, 2017), 0, 10);
+		  Activitate a2 = new
+		  Activitate("Baschet", new Data(6, 12, 2016), 100, new Data(5, 12,
+		  2018), 20, 10); 
+		  Activitate a3 = new Activitate("School", new Data(7,
+		  12, 2016), 150, new Data(5, 12, 2019), 20, 10);
+		  Activitate a4 = new
+		 Activitate("Facultate", new Data(8, 12, 2016), 200, new Data(5, 12,
+		 2020), 20, 10);
+		 
+		 Administrator admin = new Administrator();
+		 admin.adaugaActivitate(a1); admin.adaugaActivitate(a2);
+		 admin.adaugaActivitate(a3); admin.adaugaActivitate(a4);
+		 */
+		
+		
 
-		Administrator admin = new Administrator();
-		admin.adaugaActivitate(a1);
-		admin.adaugaActivitate(a2);
-		admin.adaugaActivitate(a3);
-		admin.adaugaActivitate(a4);
-
-		Elev e1 = new Elev("Cicu", "Alexandru", "2940621460044", 500);
+		// Elev e1 = new Elev("Cicu", "Alexandru", "2940621460044", 500);
 		// Verificare functie in caz ca este deja in lista
-		e1.inscriereActivitate(a1);
-		//e1.inscriereActivitate(a2);
-		e1.inscrieLaActivitate(admin);
+		// e1.inscriereActivitate(a1);
+		// e1.inscriereActivitate(a2);
+		// e1.inscrieLaActivitate(admin);
 
 		// Verificare functie
-		//e1.veziActivitatiCurente();
+		// e1.veziActivitatiCurente();
 
 		// Verificare functie
-		//e1.veziActivitatiDisponibile(admin);
+		// e1.veziActivitatiDisponibile(admin);
+
+		// TEST FUNCTII MODIFICARE ACTIVITATI SALI WORKSHOP - CICU
+		// Modifica sala - merge
+		Sala s = new Sala(10, 5, 2);
+		/*
+		 * s.modificaSala(); System.out.println("Nr sala = " + s.getNrSala());
+		 * System.out.println("Nr locuri = " + s.getNrLocuri());
+		 * System.out.println("Nr etaj = " + s.getEtaj());
+		 */
+
+		//Modificare activitate(include si modificare data)
+		/*  Activitate a = new Activitate("Test",new Data(10,10,1999),15,new
+		 Data(25,11,2060),10,50);
+		 a.modificaActivitate();
+		 a.vizualizareDetalii();
+		*/
+		
+		// Verificare Modificare Workshop (include modificare activitate si modificare sala) 
+		/*Workshop w = new Workshop("Test", new Data(10, 10, 1999), 15, new Data(25, 11, 2060), 10, 50, "lala", s);
+		w.modificaWorkshop();
+		s = w.getSala();
+		System.out.println(s.getNrLocuri());
+		System.out.println(s.getNrSala());
+		System.out.println(s.getEtaj());
+		System.out.println(w.getTematica());
+		*/
+		
+		//Verificare Modificare Sedinta(include modificare activitate si modificare sala )
+		Clasa c = new Clasa("Salam",new CadruDidactic());
+		Sedinta s1 = new Sedinta("Test", new Data(10, 10, 1999), 15, new Data(25, 11, 2060), 10, 50, c, s);
+		/*s1.modificaSedinta();
+		Sala s2 = s1.getSala();
+		Clasa c2 = s1.getClasa();
+		//Verificare clasa din sedinta
+		//System.out.println(c2.getNume());
+		//Verificare sala din sedinta
+		System.out.println(s2.getNrLocuri());
+		System.out.println(s2.getNrSala());
+		System.out.println(s2.getEtaj());
+		*/
+		
+		// Verificare modificare activitate din Cadru Didactic 
+		//admin.adaugaActivitate(s1);
+		CadruDidactic cd = new CadruDidactic("Dobrescu","Elena","100");
+		//cd.modificaActivitate(s1, admin);
+		System.out.println("Nume nou clasa = " + s1.getClasa().getNume());
+	  
 	}
 
 }

@@ -1,4 +1,5 @@
 import java.util.Date;
+import java.util.Scanner;
 
 public class Data {
 
@@ -10,7 +11,76 @@ public class Data {
 		this.zi = zi;
 		this.luna = luna;
 		this.an = an;
+
+	}
+
+	public Data() {
 		
+	}
+
+	// Cicu - l-am facut sa ma ajute la o functie
+	public void modificaData() {
+		System.out.println("Modificare Data");
+
+		// Parametru pentru apelarea multipla sau nu a functiei
+		int incercare = -1;
+		boolean modifica = true;
+		Scanner s = new Scanner(System.in);
+
+		do {
+			// Parametrii care vor fi folositi pentru modificarea functiei prin
+			// seteri
+			int NrZi_Nou = -1;
+			int NrLuna_Nou = -1;
+			int NrAn_Nou = -1;
+
+			// Valoare ca sa verific daca optiunea introdusa de modificare e
+			// valida ( daca e 1,2,3)
+			int alegere = -1;
+
+			do {
+				System.out.println("Ce parametru vrei sa modifici din data ?");
+				System.out.println("1.Zi / 2.Luna / 3.An");
+
+				alegere = s.nextInt();
+
+				switch (alegere) {
+				case 1:
+					System.out.println("Introdu alta zi = ");
+					NrZi_Nou = s.nextInt();
+					setZi(NrZi_Nou);
+					break;
+				case 2:
+					System.out.println("Introdu alta luna = ");
+					NrLuna_Nou = s.nextInt();
+					setLuna(NrLuna_Nou);
+					break;
+				case 3:
+					System.out.println("Introdu alt an = ");
+					NrAn_Nou = s.nextInt();
+					setAn(NrAn_Nou);
+					break;
+				}
+			} while (alegere != 1 && alegere != 2 && alegere != 3);
+
+			System.out.println("Modificare DATA cu succes !");
+
+			System.out.println("Mai doresti sa modifici vreun parametru din DATA ?");
+			System.out.println("1.DA / 2.NU");
+			incercare = s.nextInt();
+
+			switch (incercare) {
+			case 1:
+				modifica = true;
+				break;
+			case 2:
+				modifica = false;
+				break;
+			}
+		} while (modifica == true);
+
+		System.out.println("Modificari DATA finalizate !");
+		//s.close(); CRAPA DACA IL PUN WTF????
 	}
 
 	public int getAn() {

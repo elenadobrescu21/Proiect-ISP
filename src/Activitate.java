@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 //warning nu e folosit
 //import java.util.Date; 
+import java.util.Scanner;
 
 public class Activitate {
 
@@ -123,6 +124,7 @@ public class Activitate {
 
 	// In diagrama e functia : adaugaInListaParticipanti
 	// Modificare diagrama
+	// Verificare daca elevul e unic
 	public void adaugaElev(Elev e) {
 		eleviParticipanti.add(e);
 	}
@@ -156,9 +158,6 @@ public class Activitate {
 		}
 	}
 
-	// De implementat 
-	// modificaActivitate() - Elena
-
 	public void vizualizareDetalii() {
 		System.out.println("Activitatea de : " + this.getNume());
 		if (this.getResponsabil() == null) {
@@ -172,6 +171,77 @@ public class Activitate {
 		System.out.println("Inscrierile se pot face pana la data de : " + this.getTermenLimitaInscriere().toString());
 		System.out.println("Evenimentul se va desfasura pana la data de : " + this.getDataDesfasurare().toString());
 		System.out.println();
+	}
+
+	// Functie care sa o mosteneasca si sa o foloseasca si modificarile de
+	// workshop/sedinta/concurs
+	public void modificaActivitate() {
+
+		// Parametru pentru apelarea multipla sau nu a functiei
+		int incercare = -1;
+		boolean modifica = true;
+		Scanner s = new Scanner(System.in);
+
+		do {
+			// Parametrii care vor fi folositi pentru modificarea functiei prin
+			// seteri
+			String Nume_Nou = "";
+			float Taxa_Noua = -1.0f;
+			int NrParticipanti_Nou = -1, OraStart_Noua = -1;
+			int alegere = -1;
+			do {
+				System.out.println("Ce parametru vrei sa modifici ?");
+				System.out.println("1.Nume / 2.Taxa / 3.NrParticipanti / 4.OraStart  ");
+				System.out.println("5.Data Desfasurare / 6.Data Limita Inscriere");
+
+				alegere = s.nextInt();
+				switch (alegere) {
+				case 1:
+					System.out.println("Introdu alta denumire pentru activitate = ");
+					Nume_Nou = s.next();
+					setNume(Nume_Nou);
+					break;
+				case 2:
+					System.out.println("Introdu alta taxa = ");
+					Taxa_Noua = s.nextInt();
+					setTaxa(Taxa_Noua);
+					break;
+				case 3:
+					System.out.println("Introdu nr maxim de participanti = ");
+					NrParticipanti_Nou = s.nextInt();
+					setNrMaximParticipanti(NrParticipanti_Nou);
+					break;
+				case 4:
+					System.out.println("Introdu alta ora de incepere = ");
+					OraStart_Noua = s.nextInt();
+					setOraIncepere(OraStart_Noua);
+					break;
+				case 5:
+					dataDesfasurare.modificaData();
+					break;
+				case 6:
+					termenLimitaInscriere.modificaData();
+					break;
+
+				}
+			} while (alegere != 1 && alegere != 2 && alegere != 3 && alegere != 4 && alegere != 5 && alegere != 6);
+			System.out.println("Modificare cu succes !");
+
+			System.out.println("Mai doresti sa modifici vreun parametru ?");
+			System.out.println("1.DA / 2.NU");
+			incercare = s.nextInt();
+
+			switch (incercare) {
+			case 1:
+				modifica = true;
+				break;
+			case 2:
+				modifica = false;
+				break;
+			}
+		} while (modifica == true);
+		System.out.println("Modificari finalizate !");
+		//s.close();
 	}
 
 }

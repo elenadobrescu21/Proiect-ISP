@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hamcrest.core.IsInstanceOf;
+
 public class CadruDidactic extends Persoana {
 
 	private ArrayList<Activitate> activitatiCoordonate;
@@ -9,18 +11,18 @@ public class CadruDidactic extends Persoana {
 		super(nume, prenume, CNP);
 		activitatiCoordonate = new ArrayList<Activitate>();
 	}
-	
-    public CadruDidactic() {
-    	activitatiCoordonate = new ArrayList<Activitate>();
-    }
 
-	//am modificat din parametru CNP sa ia ca parametru nume si prenume
+	public CadruDidactic() {
+		activitatiCoordonate = new ArrayList<Activitate>();
+	}
+
+	// am modificat din parametru CNP sa ia ca parametru nume si prenume
 	public void veziDetaliiElev(String nume, String prenume, List<Elev> elevi) {
-		for(Elev e: elevi) {
-			if(e.getNume().equals(nume)&& e.getPrenume().equals(prenume)) {
+		for (Elev e : elevi) {
+			if (e.getNume().equals(nume) && e.getPrenume().equals(prenume)) {
 				e.afiseazaInformatii();
 			}
-		}		
+		}
 	}
 
 	// Se verifica daca activitatea pe care o adaugam daca o are deja in
@@ -38,7 +40,6 @@ public class CadruDidactic extends Persoana {
 		return;
 	}
 
-
 	public void veziActivitatiCoordonate() {
 		if (activitatiCoordonate.size() == 0) {
 			System.out.println("Nu coordoneaza nicio activitate");
@@ -50,7 +51,7 @@ public class CadruDidactic extends Persoana {
 			}
 		}
 	}
-	
+
 	public void afiseazaInformatii() {
 		System.out.println("Nume: " + this.getNume());
 		System.out.println("Prenume: " + this.getPrenume());
@@ -90,9 +91,30 @@ public class CadruDidactic extends Persoana {
 	public void setActivitatiCoordonate(ArrayList<Activitate> activitatiCoordonate) {
 		this.activitatiCoordonate = activitatiCoordonate;
 	}
-	
-	
-	
-	
-	
+
+	public void modificaActivitate(Activitate a, Administrator admin) {
+
+		// Foloseste lista de activitati pe care o creaza administratorul
+		// respectiv
+		ArrayList<Activitate> activitati = new ArrayList<Activitate>();
+		activitati = admin.getActivitati();
+
+		// Cauta activitatea sa vezi daca administratorul chiar o are
+		// Daca DA ->
+		if (activitati.contains(a)) {
+
+			if (a instanceof Sedinta) {
+				((Sedinta) a).modificaSedinta();
+			}
+
+			if (a instanceof Workshop) {
+				((Workshop) a).modificaWorkshop();
+			}
+		// Daca NU ->
+		} else {
+			System.out.println("Activitatea pe care incerci sa o modifici nu exista !");
+		}
+
+	}
+
 }

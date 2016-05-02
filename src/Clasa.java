@@ -4,7 +4,6 @@ public class Clasa {
 	
 	private String nume;
 	private CadruDidactic responsabil;
-	//Cicu - mai era si un arraylist de elevi in diagrama
 
 	public Clasa(String nume, CadruDidactic responsabil) {
 		this.nume = nume;
