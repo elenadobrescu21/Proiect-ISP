@@ -12,6 +12,9 @@ public class Workshop extends Activitate {
 		this.sala = sala;
 
 	}
+	public Workshop() {
+		
+	}
 
 	public String getTematica() {
 		return tematica;

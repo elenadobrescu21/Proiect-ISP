@@ -13,6 +13,10 @@ public class Concurs extends Activitate {
 		this.sponsor = sponsor;
 		this.sala = sala;
 	}
+	
+	public Concurs() {
+		
+	}
 
 	public String getDisciplina() {
 		return disciplina;

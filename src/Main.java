@@ -1,3 +1,4 @@
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -165,7 +166,7 @@ public class Main {
 
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws NoSuchFieldException, SecurityException {
 		/*
 		 * Cicu - ma incurca acum Elev e1 = new Elev("Dobrescu", "Elena",
 		 * "2940621460044", 600); Elev e2 = new Elev("Bolboaca", "valeria",
@@ -336,6 +337,13 @@ public class Main {
 		CadruDidactic cd = new CadruDidactic("Dobrescu","Elena","100");
 		//cd.modificaActivitate(s1, admin);
 		System.out.println("Nume nou clasa = " + s1.getClasa().getNume());
+		
+		/*CadruDidactic cd22 = new CadruDidactic();
+		Class someClass = cd22.getClass();
+		Field someField = someClass.getSuperclass().getField("nume");
+		someField.setAccessible(true);
+		boolean ok = false;
+		System.out.println(someField.getName()); */
 	  
 	}
 

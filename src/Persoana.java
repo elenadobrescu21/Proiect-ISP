@@ -1,10 +1,10 @@
 
 public class Persoana {
 
-	private String nume;
-	private String prenume;
-	private String CNP;
-	private Cont cont;
+	protected String nume;
+	protected String prenume;
+	protected String CNP;
+	protected Cont cont;
 
 	public Persoana(String nume, String prenume, String CNP) {
 		this.nume = nume;

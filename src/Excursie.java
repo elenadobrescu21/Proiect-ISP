@@ -10,6 +10,9 @@ public class Excursie extends Activitate {
 		super(nume, dataDesfasurare, taxa, termenLimitaInscriere, nrMaximParticipanti, oraIncepere);
 		this.obiectiveTuristice = obiectiveTuristice;
 	}
+	public Excursie() {
+		
+	}
 
 	public ArrayList<ObiectivTuristic> getObiectiveTuristice() {
 		return obiectiveTuristice;

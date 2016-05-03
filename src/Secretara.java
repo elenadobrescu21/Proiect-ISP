@@ -8,6 +8,10 @@ public class Secretara extends Persoana {
 		cont = new Cont("secretara", "secretara");
 	
 	}
+	
+	public Secretara() {
+		
+	}
 
 	public void vizualizareDateElev(List<Elev> elevi, String nume, String prenume) {
 		boolean gasit = false;
