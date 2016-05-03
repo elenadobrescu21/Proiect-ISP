@@ -10,6 +10,8 @@ public class Persoana {
 		this.nume = nume;
 		this.prenume = prenume;
 		this.CNP = CNP;
+		//relatia de compozitie-> obiectul de tip cont este creat in interiorul clasei
+		this.cont = new Cont("username_default", "parola_default"); 
 	}
 	
 	public Persoana() {
@@ -41,22 +43,25 @@ public class Persoana {
 	}
 
 	public Cont getCont() {
-		return cont;
+		return new Cont(this.cont.getUsername(), this.cont.getParola());
+	}
+	
+	public String getUsername() {
+		return this.cont.getUsername();
+	}
+	
+	public String getParola() {
+		return this.cont.getParola();
 	}
 
-	public void setCont(Cont cont) {
-		this.cont = cont;
+	public void setCont(String username, String parola) {
+		cont.setUsername(username);
+		cont.setParola(parola);
 	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((CNP == null) ? 0 : CNP.hashCode());
-		result = prime * result + ((cont == null) ? 0 : cont.hashCode());
-		result = prime * result + ((nume == null) ? 0 : nume.hashCode());
-		result = prime * result + ((prenume == null) ? 0 : prenume.hashCode());
-		return result;
+	
+	public void setCont(Cont c) {
+		this.cont.setUsername(c.getUsername());
+		this.cont.setParola(c.getParola());
 	}
 
 	@Override

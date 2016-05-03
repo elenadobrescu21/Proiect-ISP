@@ -13,6 +13,7 @@ public class Administrator {
 		this.conturiElev = new ArrayList<Cont>();
 		this.conturiCadruDidactic = new ArrayList<Cont>();
 		this.activitati = new ArrayList<Activitate>();
+		//compozitia
 		cont = new Cont("admin", "admin");
 	}
 	
@@ -225,7 +226,7 @@ public class Administrator {
 		}
 
 		this.conturiElev.add(contElev);
-		e.setCont(contElev);
+		e.setCont(username, parola);
 	}
 
 	public void creareContCadruDidactic(CadruDidactic cd) {
@@ -253,7 +254,7 @@ public class Administrator {
 		}
 
 		this.conturiCadruDidactic.add(contProfesor);
-		cd.setCont(contProfesor);
+		cd.setCont(username, parola);
 
 	}
 	
@@ -302,6 +303,10 @@ public class Administrator {
 				c.setNume(numeNou);
 			}
 		}
+
+	}
+
+	public void cautaActivitate() {
 
 	}
 

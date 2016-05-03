@@ -17,6 +17,15 @@ public class Concurs extends Activitate {
 	public Concurs() {
 
 	}
+	
+
+	public void setSponsor(Sponsor sponsor) {
+		this.sponsor = sponsor;
+	}
+
+	public void setSala(Sala sala) {
+		this.sala = sala;
+	}
 
 	public String getDisciplina() {
 		return disciplina;
