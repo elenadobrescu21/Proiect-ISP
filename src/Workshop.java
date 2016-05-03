@@ -2,82 +2,87 @@ import java.util.Scanner;
 
 public class Workshop extends Activitate {
 
-	private String tematica;
-	private Sala sala;
+    private String tematica;
+    private Sala sala;
 
-	public Workshop(String nume, Data dataDesfasurare, float taxa, Data termenLimitaInscriere, int nrMaximParticipanti,
-			int oraIncepere, String tematica, Sala sala) {
-		super(nume, dataDesfasurare, taxa, termenLimitaInscriere, nrMaximParticipanti, oraIncepere);
-		this.tematica = tematica;
-		this.sala = sala;
+    // CONSTRUCTORI
 
-	}
-	public Workshop() {
-		
-	}
+    public Workshop(String nume, Data dataDesfasurare, float taxa, Data termenLimitaInscriere, int nrMaximParticipanti,
+	    int oraIncepere, String tematica, Sala sala) {
+	super(nume, dataDesfasurare, taxa, termenLimitaInscriere, nrMaximParticipanti, oraIncepere);
+	this.tematica = tematica;
+	this.sala = sala;
 
-	public String getTematica() {
-		return tematica;
-	}
+    }
 
-	public void setTematica(String tematica) {
-		this.tematica = tematica;
-	}
+    public Workshop() {
 
-	public Sala getSala() {
-		return sala;
-	}
+    }
 
-	public void setSala(Sala sala) {
-		this.sala = sala;
-	}
+    // GETTERI + SETTERI
 
-	public void modificaWorkshop() {
+    public String getTematica() {
+	return tematica;
+    }
 
-		// Parametru pentru apelarea multipla sau nu a functiei
-		int incercare = -1;
-		boolean modifica = true;
-		Scanner s = new Scanner(System.in);
+    public void setTematica(String tematica) {
+	this.tematica = tematica;
+    }
 
-		do {
+    public Sala getSala() {
+	return sala;
+    }
 
-			int alegere = -1;
-			do {
-				System.out.println("Ce parametru vrei sa modifici din WORKSHOP ?");
-				System.out.println("1.Datele Activitatii / 2.Sala / 3.Tematica");
+    public void setSala(Sala sala) {
+	this.sala = sala;
+    }
 
-				alegere = s.nextInt();
+    public void modificaWorkshop() {
 
-				switch (alegere) {
-				case 1:// Ce tine de trunchi comun
-					System.out.println("Modificare Workshop - Date Activitate");
-					modificaActivitate();
-					break;
-				case 2:
-					System.out.println("Modificare Workshop - Sala");
-					sala.modificaSala();
-					break;
-				case 3:
-					System.out.println("Introdu alta tematica = ");
-					String Tematica_Noua = s.next();
-					setTematica(Tematica_Noua);
-					break;
-				}
-			} while (alegere != 1 && alegere != 2 && alegere != 3);
+	// Parametru pentru apelarea multipla sau nu a functiei
+	int incercare = -1;
+	boolean modifica = true;
+	Scanner s = new Scanner(System.in);
 
-			System.out.println("Mai doresti sa modifici vreun parametru din WORKSHOP ?");
-			System.out.println("1.DA / 2.NU");
-			incercare = s.nextInt();
+	do {
 
-			switch (incercare) {
-			case 1:
-				modifica = true;
-				break;
-			case 2:
-				modifica = false;
-				break;
-			}
-		} while (modifica == true);
-		System.out.println("Modificari WORKSHOP finalizate !");
-	}
+	    int alegere = -1;
+	    do {
+		System.out.println("Ce parametru vrei sa modifici din WORKSHOP ?");
+		System.out.println("1.Datele Activitatii / 2.Sala / 3.Tematica");
+
+		alegere = s.nextInt();
+
+		switch (alegere) {
+		case 1:// Ce tine de trunchi comun
+		    System.out.println("Modificare Workshop - Date Activitate");
+		    modificaActivitate();
+		    break;
+		case 2:
+		    System.out.println("Modificare Workshop - Sala");
+		    sala.modificaSala();
+		    break;
+		case 3:
+		    System.out.println("Introdu alta tematica = ");
+		    String Tematica_Noua = s.next();
+		    setTematica(Tematica_Noua);
+		    break;
+		}
+	    } while (alegere != 1 && alegere != 2 && alegere != 3);
+
+	    System.out.println("Mai doresti sa modifici vreun parametru din WORKSHOP ?");
+	    System.out.println("1.DA / 2.NU");
+	    incercare = s.nextInt();
+
+	    switch (incercare) {
+	    case 1:
+		modifica = true;
+		break;
+	    case 2:
+		modifica = false;
+		break;
+	    }
+	} while (modifica == true);
+	System.out.println("Modificari WORKSHOP finalizate !");
+    }
 }
