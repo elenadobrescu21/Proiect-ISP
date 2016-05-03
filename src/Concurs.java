@@ -13,9 +13,9 @@ public class Concurs extends Activitate {
 		this.sponsor = sponsor;
 		this.sala = sala;
 	}
-	
+
 	public Concurs() {
-		
+
 	}
 
 	public String getDisciplina() {
@@ -24,6 +24,14 @@ public class Concurs extends Activitate {
 
 	public void setDisciplina(String disciplina) {
 		this.disciplina = disciplina;
+	}
+
+	public Sponsor getSponsor() {
+		return sponsor;
+	}
+
+	public Sala getSala() {
+		return sala;
 	}
 
 }
