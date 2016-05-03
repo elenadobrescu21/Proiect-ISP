@@ -270,7 +270,7 @@ public class Elev extends Persoana {
 			// Exista locuri si nu exista bani -> reia sau
 			// Exista locuri , exista bani , nu exista termeni -> reia
 		} while (existaL == false || (existaL == true && existaB == false)
-				|| (existaL == true && existaB == true && termeni == false));
+					|| (existaL == true && existaB == true && termeni == false));
 	}
 
 	// Arata toate activitatile la care este inscris + toate detaliile pe

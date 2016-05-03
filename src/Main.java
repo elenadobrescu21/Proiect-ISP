@@ -283,30 +283,7 @@ public class Main {
 		 */
 
 		// TEST  FUNCTII ELEV +  MODIFICARE ACTIVITATE,DATA,SEDINTA,SALA,WORKSHOP- CICU
-		
-		/*  Activitate a1 = new Activitate("Fotbal", new Data(5, 12, 2016), 10,
-		  new Data(5, 12, 2017), 0, 10);
-		  Activitate a2 = new
-		  Activitate("Baschet", new Data(6, 12, 2016), 100, new Data(5, 12,
-		  2018), 20, 10); 
-		  Activitate a3 = new Activitate("School", new Data(7,
-		  12, 2016), 150, new Data(5, 12, 2019), 20, 10);
-		  Activitate a4 = new
-		 Activitate("Facultate", new Data(8, 12, 2016), 200, new Data(5, 12,
-		 2020), 20, 10);
-		 
-		 Administrator admin = new Administrator();
-		 admin.adaugaActivitate(a1); admin.adaugaActivitate(a2);
-		 admin.adaugaActivitate(a3); admin.adaugaActivitate(a4);
-		 */
-		
-		
-
-		// Elev e1 = new Elev("Cicu", "Alexandru", "2940621460044", 500);
-		// Verificare functie in caz ca este deja in lista
-		// e1.inscriereActivitate(a1);
-		// e1.inscriereActivitate(a2);
-		// e1.inscrieLaActivitate(admin);
+	
 
 		// Verificare functie
 		// e1.veziActivitatiCurente();
