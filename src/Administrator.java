@@ -305,10 +305,6 @@ public class Administrator {
 
 	}
 
-	public void cautaActivitate() {
-
-	}
-
 	public ArrayList<Cont> getConturiElev() {
 		return conturiElev;
 	}

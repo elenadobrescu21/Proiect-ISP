@@ -69,7 +69,7 @@ public class Activitate {
 		this.dataDesfasurare = data;
 	}
 
-	public double getTaxa() {
+	public float getTaxa() {
 		return taxa;
 	}
 

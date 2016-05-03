@@ -50,10 +50,6 @@ public class Sedinta extends Activitate {
 
 	public void modificaSedinta() {
 
-		// 1.Clasa
-		// 2.Sala
-		//
-
 		// Parametru pentru apelarea multipla sau nu a functiei
 		int incercare = -1;
 		boolean modifica = true;

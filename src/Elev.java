@@ -30,14 +30,16 @@ public class Elev extends Persoana {
 		return activitati;
 	}
 
+	//Nu foloseste nicaieri setterul asta
 	public void setActivitati(ArrayList<Activitate> activitati) {
 		this.activitati = activitati;
 	}
 
-	public double getNumerarCont() {
+	public float getNumerarCont() {
 		return numerarCont;
 	}
 
+	//Nu foloseste nicaieri setterul asta , doar eu in test...
 	public void setNumerarCont(float numerarCont) {
 		this.numerarCont = numerarCont;
 	}

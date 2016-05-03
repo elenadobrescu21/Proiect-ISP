@@ -31,6 +31,7 @@ public class Sponsor {
 		return activitatiSponsorizate;
 	}
 
+	// Nu e folosita nicaieri !! doar in test
 	public void setActivitatiSponsorizate(ArrayList<Activitate> activitatiSponsorizate) {
 		this.activitatiSponsorizate = activitatiSponsorizate;
 	}
